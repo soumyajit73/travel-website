@@ -141,10 +141,6 @@ h1 {
   transition: background-color 0.1s ease;
 }
 
-.navbar:hover {
-  background-color: #004494 !important;
-}
-
 .navbar-brand {
   font-weight: bold;
   color: #ffffff !important;
@@ -210,7 +206,7 @@ h1 {
 .nav-link:hover {
   color: var(--hover-color) !important;
   /* background-color: #004494; */
-  transition: left 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* Center align navbar links */
