@@ -568,16 +568,34 @@ section::before {
 
 /* Contact Us Section */
 #contact {
-  background-image: url("images/contact us.avif");
+  background-image: url("images/contact2.jpg");
   background-size: cover;
   background-position: center;
+  /* background-repeat: no-repeat; */
+  min-height: 120vh;
+  opacity: 0.85;
 }
 
 #contact h1 {
   color: var(--primary-color);
   color: #ddd;
 }
+/* Remove margin and padding from the main container */
+main {
+  margin: 0;
+  padding: 0;
+}
 
+/* Ensure the footer is directly below the content */
+footer {
+  margin-top: 0;
+}
+
+/* Remove any margin or padding from the image container */
+.image-container {
+  margin: 0;
+  padding: 0;
+}
 #contact p {
   max-width: 800px;
   margin: 0 auto 30px;
