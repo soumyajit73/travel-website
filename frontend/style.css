@@ -216,35 +216,78 @@ h1 {
   width: 100%;
 }
 /* Custom Login and Signup Modal Color Styles */
+/* Premium Modal Design */
 #loginModal .modal-content,
 #signupModal .modal-content {
-  background-color: #9bc4ee; /* Light background; adjust as needed */
-  color: #212529; /* Dark text for readability */
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0056b3, #0066cc);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
 }
 
 #loginModal .modal-header,
 #signupModal .modal-header {
-  background-color: var(--primary-color); /* Using your primary color */
-  color: #fff;
+  border-bottom: none;
+  background: transparent;
+  padding: 1.5rem;
 }
 
-#loginModal .modal-header .btn-close,
-#signupModal .modal-header .btn-close {
-  filter: invert(1); /* Makes the close button icon white */
+#loginModal .modal-title,
+#signupModal .modal-title {
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
-/* Optional: Adjust form input styling within the modals */
+#loginModal .modal-body,
+#signupModal .modal-body {
+  background: transparent;
+  padding: 2rem;
+}
+
 #loginModal .modal-body input,
-#signupModal .modal-body input {
-  background-color: #ffffff;
+#signupModal .modal-body input,
+#loginModal .modal-body textarea,
+#signupModal .modal-body textarea {
+  background-color: rgba(255,255,255,0.9);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
   color: #212529;
-  border: 1px solid #ccc;
 }
 
 #loginModal .modal-body input:focus,
-#signupModal .modal-body input:focus {
-  border-color: var(--primary-color);
+#signupModal .modal-body input:focus,
+#loginModal .modal-body textarea:focus,
+#signupModal .modal-body textarea:focus {
+  border-color: #fff;
   outline: none;
+}
+
+#loginModal .modal-footer,
+#signupModal .modal-footer {
+  border-top: none;
+  background: transparent;
+  padding: 1rem;
+}
+
+/* Premium Submit Button */
+#loginModal button[type="submit"],
+#signupModal button[type="submit"] {
+  background: #fff;
+  color: #0056b3;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#loginModal button[type="submit"]:hover,
+#signupModal button[type="submit"]:hover {
+  transform: scale(1.05);
 }
 /* Custom Button Styles */
 /* Custom Button Styles */
@@ -507,12 +550,14 @@ section::before {
 }
 /* Custom styling for the Destinations section header (without overlay) */
 #destinations > .overlay-content {
-  background: transparent; /* Remove overlay background */
-  box-shadow: none;
+  background: local; /* Remove overlay background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border: none;
   padding: 20px;
   margin-bottom: 30px;
 }
+
+
 
 #destinations > .overlay-content h1 {
   font-size: 3rem;
@@ -635,6 +680,7 @@ footer {
   border-radius: 5px;
   font-size: 1rem;
 }
+
 
 .form-group input:focus,
 .form-group textarea:focus {
