@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tours & Packages - RoamBuddy</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tours.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">RoamBuddy</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#destinations"
+                >Destinations</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Tours & Packages</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5">
+      <h1>Tours & Packages</h1>
+      <p>Explore our exclusive tours and packages for each destination.</p>
+
+      <!-- Paris Tours -->
+      <section id="paris-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>Paris</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Explore the Eiffel Tower, Louvre
+              Museum, and more. <br />
+              <strong>Price:</strong> <span class="price">$150</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Seine River Cruise with Dinner.
+              <br />
+              <strong>Price:</strong> <span class="price">$200</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#parisModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for Paris -->
+      <div
+        class="modal fade"
+        id="parisModal"
+        tabindex="-1"
+        aria-labelledby="parisModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="parisModalLabel">
+                Book Your Paris Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="parisOption"
+                    id="parisDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="parisDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="parisOption"
+                    id="parisNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="parisNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rome Tours -->
+      <section id="rome-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>Rome</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Visit the Colosseum, Roman Forum, and
+              Vatican City. <br />
+              <strong>Price:</strong> <span class="price">$180</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Evening Walk through Trastevere
+              with Dinner. <br />
+              <strong>Price:</strong> <span class="price">$220</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#romeModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for Rome -->
+      <div
+        class="modal fade"
+        id="romeModal"
+        tabindex="-1"
+        aria-labelledby="romeModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="romeModalLabel">
+                Book Your Rome Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="romeOption"
+                    id="romeDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="romeDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="romeOption"
+                    id="romeNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="romeNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indonesia Tours -->
+      <section id="indonesia-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>Indonesia</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Explore Bali's beaches and temples.
+              <br />
+              <strong>Price:</strong> <span class="price">$130</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Traditional Balinese Dance Show
+              with Dinner. <br />
+              <strong>Price:</strong> <span class="price">$170</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#indonesiaModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for Indonesia -->
+      <div
+        class="modal fade"
+        id="indonesiaModal"
+        tabindex="-1"
+        aria-labelledby="indonesiaModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="indonesiaModalLabel">
+                Book Your Indonesia Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="indonesiaOption"
+                    id="indonesiaDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="indonesiaDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="indonesiaOption"
+                    id="indonesiaNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="indonesiaNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- India Tours -->
+      <section id="india-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>India</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Visit the Taj Mahal and Agra Fort.
+              <br />
+              <strong>Price:</strong> <span class="price">$160</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Cultural Show in Jaipur with
+              Dinner. <br />
+              <strong>Price:</strong> <span class="price">$210</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#indiaModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for India -->
+      <div
+        class="modal fade"
+        id="indiaModal"
+        tabindex="-1"
+        aria-labelledby="indiaModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="indiaModalLabel">
+                Book Your India Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="indiaOption"
+                    id="indiaDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="indiaDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="indiaOption"
+                    id="indiaNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="indiaNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tokyo Tours -->
+      <section id="tokyo-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>Tokyo</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Visit the Tokyo Tower, Shibuya
+              Crossing, and more. <br />
+              <strong>Price:</strong> <span class="price">$140</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Tokyo Nightlife Tour with Dinner.
+              <br />
+              <strong>Price:</strong> <span class="price">$190</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#tokyoModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for Tokyo -->
+      <div
+        class="modal fade"
+        id="tokyoModal"
+        tabindex="-1"
+        aria-labelledby="tokyoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="tokyoModalLabel">
+                Book Your Tokyo Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tokyoOption"
+                    id="tokyoDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="tokyoDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tokyoOption"
+                    id="tokyoNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="tokyoNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New York Tours -->
+      <section id="newyork-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>New York</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Explore Central Park, Times Square, and
+              more. <br />
+              <strong>Price:</strong> <span class="price">$170</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Broadway Show with Dinner. <br />
+              <strong>Price:</strong> <span class="price">$250</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#newyorkModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for New York -->
+      <div
+        class="modal fade"
+        id="newyorkModal"
+        tabindex="-1"
+        aria-labelledby="newyorkModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newyorkModalLabel">
+                Book Your New York Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="newyorkOption"
+                    id="newyorkDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="newyorkDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="newyorkOption"
+                    id="newyorkNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="newyorkNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sydney Tours -->
+      <section id="sydney-tours" class="tour-box">
+        <div class="tour-content">
+          <h2>Sydney</h2>
+          <ul>
+            <li>
+              <strong>Day Tour:</strong> Visit the Sydney Opera House and
+              Harbour Bridge. <br />
+              <strong>Price:</strong> <span class="price">$160</span> per person
+            </li>
+            <li>
+              <strong>Night Package:</strong> Sydney Harbour Dinner Cruise.
+              <br />
+              <strong>Price:</strong> <span class="price">$230</span> per person
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#sydneyModal"
+          >
+            Book Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Modal for Sydney -->
+      <div
+        class="modal fade"
+        id="sydneyModal"
+        tabindex="-1"
+        aria-labelledby="sydneyModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="sydneyModalLabel">
+                Book Your Sydney Tour
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sydneyOption"
+                    id="sydneyDayTour"
+                    value="dayTour"
+                  />
+                  <label class="form-check-label" for="sydneyDayTour">
+                    Book Day Tour
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sydneyOption"
+                    id="sydneyNightPackage"
+                    value="nightPackage"
+                  />
+                  <label class="form-check-label" for="sydneyNightPackage">
+                    Book Night Package
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center mt-5">
+      <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

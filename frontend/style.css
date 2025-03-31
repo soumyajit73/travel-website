@@ -1,0 +1,692 @@
+/* Global Styles */
+:root {
+  --primary-color: #0056b3;
+  --hover-color: #f6ff43;
+  --font-family: "Arial", sans-serif;
+}
+
+/* Updated Background Image Styles */
+.background-image {
+  position: relative;
+  min-height: calc(100vh - 10px); /* Adjust based on footer height */
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  margin: 0;
+  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("images/landing page image.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85; /* Adjust this value to change image opacity */
+  z-index: -1; /* Ensure the image stays behind the text */
+}
+/* Overlay Content Styles */
+/* Overlay Content Styles */
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Optional: Add a semi-transparent background for better readability */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.overlay-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: antiquewhite;
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  /* color: antiquewhite; */
+}
+
+.overlay-content .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.overlay-content:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+.overlay-content .btn-primary:hover {
+  background-color: #004494;
+  transform: scale(1.1);
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Header Styles */
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-top: 20px;
+}
+/* Custom styles for Login and Sign Up buttons */
+/* Custom Navbar Signup & Login Button Styles */
+.navbar .btn-primary {
+  background: linear-gradient(45deg, #007bff, #6f42c1);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.navbar .btn-primary:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar .btn-primary:hover {
+  background: linear-gradient(45deg, #0056b3, #5a32a3);
+  transform: scale(1.05);
+}
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--primary-color) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  transition: background-color 0.1s ease;
+}
+
+.navbar:hover {
+  background-color: #004494 !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff !important;
+  border-color: var(--primary-color);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.navbar-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+}
+
+.navbar-brand:hover {
+  /* color: var(--hover-color) !important; */
+  transform: scale(1.1);
+}
+.navbar-brand:hover::before {
+  left: 0;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #ffffff !important;
+  border-color: var(--primary-color);
+  /* border: 3px solid var(--primary-color); */
+  text-align: center;
+  margin: 0 15px;
+}
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+}
+
+.nav-link:hover {
+  color: var(--hover-color) !important;
+  transform: scale(1.1);
+  transition: left 0.3s ease;
+}
+
+.nav-link:hover::before {
+  left: 0;
+}
+
+.navbar-brand:hover {
+  color: var(--hover-color) !important;
+  /* border: 3px solid var(--primary-color);  */
+  /* background-color: #004494;  */
+  /* transition-delay: 0.5s; 
+   animation-delay: initial ; */
+}
+.nav-link:hover {
+  color: var(--hover-color) !important;
+  /* background-color: #004494; */
+  transition: left 0.3s ease;
+}
+
+/* Center align navbar links */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+/* Custom Login and Signup Modal Color Styles */
+#loginModal .modal-content,
+#signupModal .modal-content {
+  background-color: #9bc4ee; /* Light background; adjust as needed */
+  color: #212529; /* Dark text for readability */
+}
+
+#loginModal .modal-header,
+#signupModal .modal-header {
+  background-color: var(--primary-color); /* Using your primary color */
+  color: #fff;
+}
+
+#loginModal .modal-header .btn-close,
+#signupModal .modal-header .btn-close {
+  filter: invert(1); /* Makes the close button icon white */
+}
+
+/* Optional: Adjust form input styling within the modals */
+#loginModal .modal-body input,
+#signupModal .modal-body input {
+  background-color: #ffffff;
+  color: #212529;
+  border: 1px solid #ccc;
+}
+
+#loginModal .modal-body input:focus,
+#signupModal .modal-body input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+/* Custom Button Styles */
+/* Custom Button Styles */
+/* Update btn-outline-primary to match btn-primary */
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #004494;
+  /* Darker shade for hover effect */
+  border-color: #004494;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #004494; /* Darker shade for hover effect */
+  border-color: #004494;
+  transform: scale(1.1);
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Flexbox for Navbar Items */
+/* Ensure buttons do not wrap on multiple lines */
+.navbar .d-flex {
+  flex-wrap: nowrap;
+}
+
+.navbar .d-flex a {
+  white-space: nowrap;
+}
+/* General Section Styles */
+/* Replace your existing section styles with the following */
+
+/* Unified Section Styles (similar to homepage) */
+/* Common Section Styles */
+section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* This will set 30px space between each item */
+  justify-content: center;
+}
+/* Overlay Content Styles */
+/* Enhanced Overlay Content Styles */
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.overlay-content a {
+  text-decoration: none;
+}
+
+.overlay-content a:hover {
+  text-decoration: none;
+}
+
+.overlay-content:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.736);
+}
+
+.overlay-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: antiquewhite;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.overlay-content .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.overlay-content:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+.overlay-content .btn-primary:hover {
+  background-color: #004494;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overlay-content h1 {
+    font-size: 2rem;
+  }
+
+  .overlay-content p {
+    font-size: 1rem;
+  }
+}
+/* About Us Section */
+/* About Us Section */
+#about {
+  min-height: 100vh; /* Ensures the section covers the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  /* Remove the background-image property from here if present */
+}
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("images/about us.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8; /* Adjust this value for desired image opacity */
+  z-index: -1;
+}
+
+/* Styles for the Read More button */
+#read-more-btn {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#read-more-btn:hover {
+  /* background-color: #004494; */
+  transform: scale(1.05);
+}
+
+#about h1 {
+  color: var(--primary-color);
+  color: #ddd;
+}
+
+#about p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* Destinations Section */
+/* Destinations Section */
+/* Destinations Section */
+#destinations {
+  /* Remove the background-image properties from the element itself */
+  min-height: 100vh; /* Ensures the section covers the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Ensure text is readable over the image */
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Use the ::before pseudo-element for the background image with reduced opacity */
+#destinations::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("images/destinations.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7; /* Adjust this value for desired image opacity */
+  z-index: -1;
+}
+
+#destinations > * {
+  position: relative;
+  z-index: 1;
+}
+
+#destinations h1 {
+  color: var(--primary-color);
+  color: #000000;
+}
+
+#destinations p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+/* Custom styling for the Destinations section header (without overlay) */
+#destinations > .overlay-content {
+  background: transparent; /* Remove overlay background */
+  box-shadow: none;
+  border: none;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+#destinations > .overlay-content h1 {
+  font-size: 3rem;
+  color: #000000;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+#destinations > .overlay-content p {
+  font-size: 1.5rem;
+  color: #000000;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+/* Tours & Packages Section */
+#tours {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  /* Remove the background-image property from here if present */
+}
+#tours::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("images/tours and prices.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.85; /* Adjust this for desired opacity */
+  z-index: -1;
+}
+
+#tours h1 {
+  color: var(--primary-color);
+  color: #ddd;
+}
+
+#tours p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* Contact Us Section */
+#contact {
+  background-image: url("images/contact us.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+#contact h1 {
+  color: var(--primary-color);
+  color: #ddd;
+}
+
+#contact p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+/* Contact Form Styles */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#contact .overlay-content:hover {
+  transform: none !important;
+  background-color: rgba(30, 22, 22, 0.8) !important;
+  box-shadow: none !important;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #004494;
+  transform: scale(1.05);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 40px 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .d-flex {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+/* Footer Styles */
+footer {
+  background-color: #212121;
+  color: #ffffff;
+  border-top: 10px solid #ddd;
+  text-align: center;
+  padding: 10px 0;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive Design */
+/* @media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+} */

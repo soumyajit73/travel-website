@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page - RoamBuddy</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="home">
+    <!-- Background Image Container -->
+    <div class="background-image">
+      <div class="background-image">
+        <div class="overlay-content">
+          <h1>Welcome to RoamBuddy</h1>
+          <p>Your journey begins here. Explore the world with us.</p>
+          <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+        </div>
+        <!-- Navigation Bar (Optional Placeholder) -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <!-- Navbar content -->
+        </nav>
+      </div>
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#home">RoamBuddy</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#destinations">Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tours">Tours & Packages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex ms-3" role="search" id="search-form">
+              <div class="input-group">
+                <span class="input-group-text" id="search-icon">🔍</span>
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  name="query"
+                />
+              </div>
+            </form>
+            <div class="d-flex ms-3">
+              <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container-fluid p-0">
+      <!-- About Us Section -->
+      <section id="about">
+        <div class="overlay-content">
+          <h1>About Us</h1>
+          <p>Welcome to RoamBuddy, your trusted travel partner.</p>
+          <p>
+            With a legacy of over 175 years in the travel industry, we are committed to making your travel dreams a reality. Our mission is to provide exceptional travel experiences that inspire and enrich the lives of our customers.
+          </p>
+          <div id="read-more-content" class="read-more-content" style="display: none">
+            <h2>Our Story</h2>
+            <p>
+              Founded in 1841, RoamBuddy has been at the forefront of the travel industry, pioneering new ways to explore the globe. From organizing the first-ever package tour to introducing innovative travel solutions, our journey has been one of passion, dedication, and a relentless pursuit of excellence.
+            </p>
+            <h2>What We Offer</h2>
+            <p>
+              <li>Tailored Travel Packages: Whether you're seeking a relaxing beach holiday, an adventurous trek, or a cultural city tour, we offer customized packages to suit your preferences and budget.</li>
+              <li>Expert Guidance: Our team of experienced travel consultants is here to guide you every step of the way, ensuring a seamless and memorable travel experience.</li>
+              <li>Global Destinations: With a vast network of destinations across the world, we provide you with endless possibilities to explore new places and cultures.</li>
+            </p>
+            <h2>Our Commitment</h2>
+            <p>
+              At RoamBuddy, we believe in responsible and sustainable travel. We are dedicated to minimizing our environmental impact and supporting local communities in the destinations we serve. Our commitment to quality and customer satisfaction is unwavering, and we strive to exceed your expectations with every journey.
+            </p>
+          </div>
+          <button id="read-more-btn" class="btn btn-primary">Read More</button>
+        </div>
+      </section>
+
+      <!-- Destinations Section -->
+      <section id="destinations">
+        <div class="overlay-content">
+          <h1>Destinations</h1>
+          <p>Explore our exciting destinations around the world.</p>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="overlay-content">
+                <a href="/locations/paris.html">
+                  <h2>Paris:The Jewel of France</h2>
+                  <p>Explore Paris, where iconic landmarks like the Eiffel Tower and the Louvre meet exquisite cuisine and vibrant culture. Paris enchants with its timeless charm and elegance.</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="overlay-content">
+                <a href="/locations/rome.html">
+                  <h2>Rome:The Eternal City</h2>
+                  <p>Step into the grandeur of Rome, where ancient history and vibrant culture converge. Explore legendary sites like the Colosseum and Vatican City, and enjoy the rich flavors of Italian cuisine. Rome captivates with its timeless beauty and lively spirit.</p>
+                </a>
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <div class="overlay-content">
+                <a href="/locations/india.html">
+                  <h2>
+                    India: A Tapestry of Traditions</h2>
+                  <p>Embark on a journey through India, a land of diverse cultures and breathtaking landscapes. Visit iconic landmarks like the Taj Mahal and explore vibrant cities rich in history and tradition. India promises a unique and enriching adventure..</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tours & Packages Section -->
+   <!-- Tours & Packages Section -->
+<section id="tours">
+  <div class="overlay-content">
+    <a href="tnp.html">
+      <h1>Tours & Packages</h1>
+      <p>Discover our exclusive tours and packages.</p>
+    </a>
+  </div>
+</section>
+
+      <!-- Contact Us Section -->
+      <section id="contact">
+        <div class="overlay-content">
+          <h1>Contact Us</h1>
+          <p>Get in touch with us for any inquiries or support.</p>
+          <form id="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer class="text-center mt-5">
+        <p>&copy; 2023 RoamBuddy. All rights reserved.</p>
+        <p>Follow us on social media:</p>
+        <a href="#" class="me-2">Facebook</a>
+        <a href="#" class="me-2">Twitter</a>
+        <a href="#">Instagram</a>
+      </footer>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="login-form">
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="signup-form">
+              <div class="mb-3">
+                <label for="signupName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email" required>
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+              </div>
+             
+              <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("read-more-btn").addEventListener("click", function () {
+        const content = document.getElementById("read-more-content");
+        const button = document.getElementById("read-more-btn");
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+          button.textContent = "Read Less";
+        } else {
+          content.style.display = "none";
+          button.textContent = "Read More";
+        }
+      });
+    </script>
+    <script>
+      document.getElementById("search-icon").addEventListener("click", function () {
+        document.getElementById("search-form").submit();
+      });
+    </script>
+  </body>
+</html>
