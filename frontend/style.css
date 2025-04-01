@@ -131,7 +131,7 @@ body {
 
 .sidebar a:hover {
   color: #000000;
-  background: rgba(219, 234, 237, 0.97);
+  background: rgba(200, 200, 200, 0.97);
 }
 
 .closebtn {
@@ -680,7 +680,7 @@ section::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.5; /* Adjust this value for desired image opacity */
+  opacity: 0.75; /* Adjust this value for desired image opacity */
   z-index: -1;
 }
 
