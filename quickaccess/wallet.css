@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e9e6e6;
+  
+}
+h1 a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color from the h1 */
+}
+
+h1 a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
+}
+header {
+  background-color: #0056b3;
+  color: rgb(255, 255, 255);
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #0056b3;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 10px 0;
+}
