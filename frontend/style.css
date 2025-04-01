@@ -4,7 +4,114 @@
   --hover-color: #f6ff43;
   --font-family: "Arial", sans-serif;
 }
+/* style.css */
 
+
+/* style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.profile-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 1px;
+  margin-left: 3px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  padding-top: 5px; /* Adjust this value as needed */
+}
+/* Map container styles */
+/* Map container styles */
+/* Map container styles */
+/* Map container styles */
+#map {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 10;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+
+/* Close button styles */
+
+
+
+.profile-icon:hover {
+  color: #e2ff0a;
+}
+.sidebar h1 {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #0538de, #00087e);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: width 0.5s ease;
+  padding-top: 100px;
+  /* line-gap-override: 0.5rem; */
+  z-index: 1000;
+}
+
+.sidebar a {
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+  display: block;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #000000;
+  background: rgba(219, 234, 237, 0.97);
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  color: #f1f1f1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closebtn:hover {
+  color: #ff4c4c;
+}
+
+.overlay-content h1, .overlay-content p {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004494;
+}
 /* Updated Background Image Styles */
 .background-image {
   position: relative;
@@ -33,6 +140,7 @@
   opacity: 0.85; /* Adjust this value to change image opacity */
   z-index: -1; /* Ensure the image stays behind the text */
 }
+
 /* Overlay Content Styles */
 /* Overlay Content Styles */
 .overlay-content {
@@ -43,12 +151,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Optional: Add a semi-transparent background for better readability */
+  background-color: rgba(255, 255, 255, 0.5); /* Optional: Add a semi-transparent background for better readability */
   border-radius: 10px; /* Optional: Add rounded corners */
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -57,12 +160,14 @@
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: antiquewhite;
+  
+  /* background-color: #0a0909; */
 }
 
 .overlay-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  /* color: antiquewhite; */
+  color: antiquewhite;
 }
 
 .overlay-content .btn-primary {
@@ -539,38 +644,69 @@ section::before {
 }
 
 #destinations h1 {
-  color: var(--primary-color);
-  color: #000000;
+  /* color: var(--primary-color); */
+  color: #fffefe;
+  /* line-height: 20%; */
+  /* box-height: 20%; */
+  
 }
 
 #destinations p {
   max-width: 800px;
   margin: 0 auto 30px;
+  color: #000000;
   line-height: 1.6;
 }
 /* Custom styling for the Destinations section header (without overlay) */
 #destinations > .overlay-content {
-  background: local; /* Remove overlay background */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.5); /* Whitish background */
+  box-shadow: 0 8px 16px rgba(12, 10, 10, 0.5);
   border: none;
   padding: 20px;
   margin-bottom: 30px;
 }
-
+#destinations h2{
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+ 
+  color: #000000;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
 
 #destinations > .overlay-content h1 {
+  /* background-color: ; */
   font-size: 3rem;
   color: #000000;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  background: rgba(200, 255, 255, 0.5);
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
   margin: 0;
 }
 
 #destinations > .overlay-content p {
   font-size: 1.5rem;
   color: #000000;
+  
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   margin-top: 10px;
+}
+#destinations .container .overlay-content {
+  background: rgba(255, 255, 255, 0.6); /* White-ish background */
+  color: #ebebeb; /* Dark text for contrast */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 8);
+  border: none;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300
+  px; /* Set a max-width for the overlay content */
+}
+
+#destinations .container .overlay-content:hover {
+  transform: scale(1.05) translateY(-5px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.);
 }
 
 /* Tours & Packages Section */

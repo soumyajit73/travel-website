@@ -3,7 +3,7 @@
 /* General styles for the page */
 .navbar {
   background-color: #00229b; /* New blue navbar background */
-  color: #ffffff; /* White text for navbar */
+  color: #002365; /* White text for navbar */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@ body {
     #8aa4be,
     #0271e1
   ); /* Subtle gradient background */
-  color: #333; /* Dark text color */
+  color: #000000; /* Dark text color */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ body {
 
 h1,
 h2 {
-  color: #0056b3; /* A shade of blue for headings */
+  color: #003267; /* A shade of blue for headings */
   text-transform: uppercase; /* Uppercase headings */
   letter-spacing: 1px; /* Spacing between letters */
   margin-bottom: 20px;

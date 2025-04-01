@@ -10,6 +10,57 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Sidebar styles */
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 1000;
+      }
+
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+
+      .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+
+      /* Map container styles */
+      #map {
+        display: none; /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+      }
+    </style>
   </head>
   <body id="home">
     <!-- Background Image Container -->
@@ -18,10 +69,31 @@
         <div class="overlay-content">
           <h1>Welcome to RoamBuddy</h1>
           <p>Your journey begins here. Explore the world with us.</p>
-          <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+          <a href="#destinations" class="btn btn-primary"
+            >Explore Destinations</a
+          >
+          <!-- Move Login and Sign Up Buttons Here -->
+          <div class="d-flex justify-content-center mt-3">
+            <button
+              type="button"
+              class="btn btn-primary me-2"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#signupModal"
+            >
+              Sign Up
+            </button>
+          </div>
         </div>
         <!-- Navigation Bar (Optional Placeholder) -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
           <!-- Navbar content -->
         </nav>
       </div>
@@ -38,12 +110,14 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon tex"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse te" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#about">About Us</a>
+                <a class="nav-link active" aria-current="page" href="#about"
+                  >About Us</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#destinations">Destinations</a>
@@ -53,6 +127,10 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              <!-- Profile Icon in Navbar -->
+              <li class="nav-item">
+                <i class="fas fa-user profile-icon" id="profileIcon"></i>
               </li>
             </ul>
             <form class="d-flex ms-3" role="search" id="search-form">
@@ -67,14 +145,36 @@
                 />
               </div>
             </form>
-            <div class="d-flex ms-3">
-              <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
-            </div>
           </div>
         </div>
       </nav>
     </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <a href="#" class="closebtn" id="closeSidebar">&times;</a>
+      <h1>Quick Access</h1>
+      <a href="#">Travel Wallet</a>
+      <a href="#">Preferred Destinations</a>
+      <a href="#">Booking History</a>
+      <a href="#">Membership</a>
+      <a href="#" id="worldMapLink">World Map</a>
+      
+    </div>
+
+    <!-- Map Container -->
+ <!-- Map Container -->
+<div id="map">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58856950.88753749!2d-15.956341145610649!3d25.792249501387207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1743496476411!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
 
     <!-- Main Content -->
     <main class="container-fluid p-0">
@@ -82,20 +182,36 @@
       <section id="about">
         <div class="overlay-content">
           <h1>About Us</h1>
-          <p>Welcome to RoamBuddy, your trusted travel partner.</p>
-         
-          <div id="read-more-content" class="read-more-content" style="display: none">
-            
-           
+          <p>
+            At RoamBuddy, we believe in responsible and sustainable travel. We
+            are dedicated to minimizing our environmental impact and supporting
+            local communities in the destinations we serve. Our commitment to
+            quality and customer satisfaction is unwavering, and we strive to
+            exceed your expectations with every journey.
+          </p>
+
+          <div
+            id="read-more-content"
+            class="read-more-content"
+            style="display: none"
+          >
             <h2>What We Offer</h2>
             <p>
-              <li>Tailored Travel Packages: Whether you're seeking a relaxing beach holiday, an adventurous trek, or a cultural city tour, we offer customized packages to suit your preferences and budget.</li>
-              <li>Expert Guidance: Our team of experienced travel consultants is here to guide you every step of the way, ensuring a seamless and memorable travel experience.</li>
-              <li>Global Destinations: With a vast network of destinations across the world, we provide you with endless possibilities to explore new places and cultures.</li>
-            </p>
-            <h2>Our Commitment</h2>
-            <p>
-              At RoamBuddy, we believe in responsible and sustainable travel. We are dedicated to minimizing our environmental impact and supporting local communities in the destinations we serve. Our commitment to quality and customer satisfaction is unwavering, and we strive to exceed your expectations with every journey.
+              <li>
+                Tailored Travel Packages: Whether you're seeking a relaxing
+                beach holiday, an adventurous trek, or a cultural city tour, we
+                offer customized packages to suit your preferences and budget.
+              </li>
+              <li>
+                Expert Guidance: Our team of experienced travel consultants is
+                here to guide you every step of the way, ensuring a seamless and
+                memorable travel experience.
+              </li>
+              <li>
+                Global Destinations: With a vast network of destinations across
+                the world, we provide you with endless possibilities to explore
+                new places and cultures.
+              </li>
             </p>
           </div>
           <button id="read-more-btn" class="btn btn-primary">Read More</button>
@@ -105,34 +221,58 @@
       <!-- Destinations Section -->
       <section id="destinations">
         <div class="overlay-content">
-          <h1>🌴Destinations🌴</h1>
-          <p>Explore our exciting destinations around the world.</p>
+          <h1><strong>🌴Destinations🌴</strong></h1>
+          <p>
+            <strong>Explore our exciting destinations around the world.</strong>
+          </p>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-md-3">
               <div class="overlay-content">
                 <a href="./locations/paris.html">
-                  <h2>Paris:The Jewel of France</h2>
-                  <p>Explore Paris, where iconic landmarks like the Eiffel Tower and the Louvre meet exquisite cuisine and vibrant culture. Paris enchants with its timeless charm and elegance.</p>
+                  <h2><strong>Paris:The Jewel of France</strong></h2>
+                  <p>
+                    <strong
+                      >Explore Paris, where iconic landmarks like the Eiffel
+                      Tower and the Louvre meet exquisite cuisine and vibrant
+                      culture. Paris enchants with its timeless charm and
+                      elegance.</strong
+                    >
+                  </p>
                 </a>
               </div>
             </div>
             <div class="col-md-3">
               <div class="overlay-content">
                 <a href="./locations/rome.html">
-                  <h2>Rome:The Eternal City</h2>
-                  <p>Step into the grandeur of Rome, where ancient history and vibrant culture converge. Explore legendary sites like the Colosseum and Vatican City, and enjoy the rich flavors of Italian cuisine. </p>
+                  <h2><strong>Rome:The Eternal City</strong></h2>
+                  <p>
+                    <strong
+                      >Step into the grandeur of Rome, where ancient history and
+                      vibrant culture converge. Explore legendary sites like the
+                      Colosseum and Vatican City, and enjoy the rich flavors of
+                      Italian cuisine.</strong
+                    >
+                  </p>
                 </a>
               </div>
             </div>
-            
+
             <div class="col-md-3">
               <div class="overlay-content">
                 <a href="./locations/india.html">
                   <h2>
-                    India: A Tapestry of Traditions</h2>
-                  <p>Embark on a journey through India, a land of diverse cultures and breathtaking landscapes. Visit iconic landmarks like the Taj Mahal and explore vibrant cities rich in history and tradition. India promises a unique and enriching adventure..</p>
+                    <strong>India: A Tapestry of Traditions</strong>
+                  </h2>
+                  <p>
+                    <strong
+                      >Embark on a journey through India, a land of diverse
+                      cultures and breathtaking landscapes. Visit iconic
+                      landmarks like the Taj Mahal and explore vibrant cities
+                      rich in history and tradition.
+                    </strong>
+                  </p>
                 </a>
               </div>
             </div>
@@ -141,15 +281,15 @@
       </section>
 
       <!-- Tours & Packages Section -->
-   <!-- Tours & Packages Section -->
-<section id="tours">
-  <div class="overlay-content">
-    <a href="tnp.html">
-      <h1>🧳Tours & Packages🧳</h1>
-      <p>Discover our exclusive tours and packages.</p>
-    </a>
-  </div>
-</section>
+      <!-- Tours & Packages Section -->
+      <section id="tours">
+        <div class="overlay-content">
+          <a href="tnp.html">
+            <h1>🧳Tours & Packages🧳</h1>
+            <p>Discover our exclusive tours and packages.</p>
+          </a>
+        </div>
+      </section>
 
       <!-- Contact Us Section -->
       <section id="contact">
@@ -167,7 +307,12 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
@@ -185,22 +330,45 @@
     </main>
 
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="login-form">
               <div class="mb-3">
                 <label for="loginEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Enter email"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="loginPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Password"
+                  required
+                />
               </div>
               <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
@@ -210,29 +378,62 @@
     </div>
 
     <!-- Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="signupModal"
+      tabindex="-1"
+      aria-labelledby="signupModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="signup-form">
               <div class="mb-3">
                 <label for="signupName" class="form-label">Userame</label>
-                <input type="text" class="form-control" id="signupName" placeholder="Enter your Userame" required>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="signupName"
+                  placeholder="Enter your Userame"
+                  required
+                />
               </div>
               <div class="mb-3">
-                <label for="signupEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email" required>
+                <label for="signupEmail" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signupEmail"
+                  placeholder="Enter email"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="signupPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signupPassword"
+                  placeholder="Password"
+                  required
+                />
               </div>
-             
-              <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+              <button type="submit" class="btn btn-primary w-100">
+                Sign Up
+              </button>
             </form>
           </div>
         </div>
@@ -242,22 +443,49 @@
     <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById("read-more-btn").addEventListener("click", function () {
-        const content = document.getElementById("read-more-content");
-        const button = document.getElementById("read-more-btn");
-        if (content.style.display === "none" || content.style.display === "") {
-          content.style.display = "block";
-          button.textContent = "Read Less";
-        } else {
-          content.style.display = "none";
-          button.textContent = "Read More";
-        }
-      });
-    </script>
-    <script>
-      document.getElementById("search-icon").addEventListener("click", function () {
-        document.getElementById("search-form").submit();
-      });
+      // Event listener for the World Map link
+      // Event listener for the World Map link
+// Event listener for the World Map link
+// Event listener for the World Map link
+document.getElementById("worldMapLink").onclick = function (e) {
+  e.preventDefault();
+  document.getElementById("map").style.display = "block";
+  document.getElementById("sidebar").style.width = "0";
+};
+
+// Close map when clicking outside
+document.addEventListener("click", function (e) {
+  const map = document.getElementById("map");
+  if (map.style.display === "block" && !map.contains(e.target) && e.target.id !== "worldMapLink") {
+    map.style.display = "none";
+  }
+});
+
+document.getElementById("closeSidebar").onclick = function () {
+  document.getElementById("sidebar").style.width = "0";
+};
+
+document
+  .getElementById("read-more-btn")
+  .addEventListener("click", function () {
+    const content = document.getElementById("read-more-content");
+    const button = document.getElementById("read-more-btn");
+    if (content.style.display === "none" || content.style.display === "") {
+      content.style.display = "block";
+      button.textContent = "Read Less";
+    } else {
+      content.style.display = "none";
+      button.textContent = "Read More";
+    }
+  });
+
+document.getElementById("search-icon").addEventListener("click", function () {
+  document.getElementById("search-form").submit();
+});
+
+document.getElementById("profileIcon").onclick = function () {
+  document.getElementById("sidebar").style.width = "300px";
+};
     </script>
   </body>
 </html>
