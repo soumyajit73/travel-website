@@ -4,7 +4,31 @@
   --hover-color: #f6ff43;
   --font-family: "Arial", sans-serif;
 }
-/* style.css */
+#dest {
+  background-color: #0056b3; /* Primary color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block; /* Ensures the button wraps the content */
+}
+
+#dest a {
+  color: #ffffff; /* Text color */
+  text-decoration: none; /* Remove underline from link */
+  font-weight: bold;
+  display: block; /* Ensures the link fills the button */
+}
+
+#dest:hover {
+  background-color: #004494; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#dest:active {
+  transform: scale(0.95); /* Slightly shrink on click */
+}
 
 /* style.css */
 body {
@@ -70,7 +94,7 @@ body {
   padding: 10px 25px;
   text-decoration: none;
   font-size: 20px;
-  color: #fffdfd;
+  color: #ffffff;
   display: block;
   transition: color 0.3s ease, background 0.3s ease;
 }
@@ -141,56 +165,8 @@ body {
 
 /* Overlay Content Styles */
 /* Overlay Content Styles */
-.overlay-content {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* Optional: Add a semi-transparent background for better readability */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+/* Restore Overlay Content Appearance */
 
-.overlay-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: antiquewhite;
-
-  /* background-color: #0a0909; */
-}
-
-.overlay-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: antiquewhite;
-}
-
-.overlay-content .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: #fff;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.overlay-content:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
-}
-
-.overlay-content .btn-primary:hover {
-  background-color: #004494;
-  transform: scale(1.1);
-}
 html,
 body {
   height: 100%;
@@ -489,29 +465,24 @@ section::before {
   max-width: 800px;
   margin: 0 auto;
   padding: 30px 20px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-}
-.overlay-content a {
-  text-decoration: none;
-}
-
-.overlay-content a:hover {
-  text-decoration: none;
+  color: #000000; /* Text color */
 }
 
 .overlay-content:hover {
-  transform: scale(1.05) translateY(-10px);
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.5); /* More opaque on hover */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.736);
 }
 
 .overlay-content h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: antiquewhite;
+  color: rgb(0, 0, 0);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -519,7 +490,7 @@ section::before {
   font-size: 1.2rem;
   margin-bottom: 30px;
   line-height: 1.6;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 .overlay-content .btn-primary {
@@ -531,16 +502,24 @@ section::before {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.overlay-content:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
-}
-
 .overlay-content .btn-primary:hover {
   background-color: #004494;
   transform: scale(1.1);
 }
 
+.overlay-content a {
+  text-decoration: none;
+}
+
+.overlay-content a:hover {
+  text-decoration: none;
+}
+#about .overlay-content h1,
+#tours .overlay-content h1 ,
+#contact .overlay-content h1 {
+  color: #000000 !important;
+  text-shadow: none; /* Remove any text-shadow if needed */
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .overlay-content h1 {
@@ -608,9 +587,42 @@ section::before {
   line-height: 1.6;
 }
 
-/* Destinations Section */
-/* Destinations Section */
-/* Destinations Section */
+
+/* Slider Container */
+.slider {
+  position: relative;
+  overflow: visible; /* Allow arrows to be visible outside the slider */
+  max-width: 800px;
+ /* Adjust as needed */
+  margin: auto;
+}
+
+/* Slider Arrow Buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 50%;
+  transition: opacity 1s ease-in-out;
+  z-index: 10;
+}
+
+/* Position arrows outside the slider box */
+.arrow.left {
+  left: -50px;
+}
+
+.arrow.right {
+  right: -50px;
+}
+
+
 #destinations {
   /* Remove the background-image properties from the element itself */
   min-height: 100vh; /* Ensures the section covers the full viewport height */

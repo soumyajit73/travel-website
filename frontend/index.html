@@ -67,8 +67,8 @@
     <div class="background-image">
       <div class="background-image">
         <div class="overlay-content">
-          <h1>Welcome to RoamBuddy</h1>
-          <p>Your journey begins here. Explore the world with us.</p>
+         <strong> <h1>Welcome to RoamBuddy</h1>
+          <p>Your journey begins here. Explore the world with us.</p></strong>
           <a href="#destinations" class="btn btn-primary"
             >Explore Destinations</a
           >
@@ -181,6 +181,7 @@
       <!-- About Us Section -->
       <section id="about">
         <div class="overlay-content">
+          <strong>
           <h1>About Us</h1>
           <p>
             At RoamBuddy, we believe in responsible and sustainable travel. We
@@ -189,96 +190,85 @@
             quality and customer satisfaction is unwavering, and we strive to
             exceed your expectations with every journey.
           </p>
-
+        </strong>
           <div
             id="read-more-content"
             class="read-more-content"
             style="display: none"
           >
+          
             <h2>What We Offer</h2>
+            <strong></strong>
             <p>
+              <strong>
               <li>
                 Tailored Travel Packages: Whether you're seeking a relaxing
                 beach holiday, an adventurous trek, or a cultural city tour, we
                 offer customized packages to suit your preferences and budget.
               </li>
-              <li>
+            </strong>
+            <strong> <li>
                 Expert Guidance: Our team of experienced travel consultants is
                 here to guide you every step of the way, ensuring a seamless and
                 memorable travel experience.
               </li>
+            </strong>
+            <strong>
               <li>
                 Global Destinations: With a vast network of destinations across
                 the world, we provide you with endless possibilities to explore
                 new places and cultures.
               </li>
+           
             </p>
+          </strong>
           </div>
           <button id="read-more-btn" class="btn btn-primary">Read More</button>
         </div>
       </section>
 
       <!-- Destinations Section -->
-      <section id="destinations">
-        <div class="overlay-content">
-          <h1><strong>🌴Destinations🌴</strong></h1>
-          <p>
-            <strong>Explore our exciting destinations around the world.</strong>
-          </p>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="overlay-content">
-                <a href="./locations/paris.html">
-                  <h2><strong>Paris:The Jewel of France</strong></h2>
-                  <p>
-                    <strong
-                      >Explore Paris, where iconic landmarks like the Eiffel
-                      Tower and the Louvre meet exquisite cuisine and vibrant
-                      culture. Paris enchants with its timeless charm and
-                      elegance.</strong
-                    >
-                  </p>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="overlay-content">
-                <a href="./locations/rome.html">
-                  <h2><strong>Rome:The Eternal City</strong></h2>
-                  <p>
-                    <strong
-                      >Step into the grandeur of Rome, where ancient history and
-                      vibrant culture converge. Explore legendary sites like the
-                      Colosseum and Vatican City, and enjoy the rich flavors of
-                      Italian cuisine.</strong
-                    >
-                  </p>
-                </a>
-              </div>
-            </div>
+      <!-- Destinations Section -->
+<section id="destinations">
+  <div class="overlay-content">
+    
+    <h1><strong>✈️Destinations🌍</strong></h1>
+    <p><strong>Explore our exciting destinations around the world.</strong></p>
+    <button id="dest"><a href="tnp.html">Explore More Locations</a></button>
+  </div>
+  <div class="slider">
+    <div class="slide" id="slide1">
+      <div class="overlay-content">
 
-            <div class="col-md-3">
-              <div class="overlay-content">
-                <a href="./locations/india.html">
-                  <h2>
-                    <strong>India: A Tapestry of Traditions</strong>
-                  </h2>
-                  <p>
-                    <strong
-                      >Embark on a journey through India, a land of diverse
-                      cultures and breathtaking landscapes. Visit iconic
-                      landmarks like the Taj Mahal and explore vibrant cities
-                      rich in history and tradition.
-                    </strong>
-                  </p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <a href="tnp.html">
+          <h2><strong>Paris: The Jewel of France</strong></h2>
+          <p><strong>Explore Paris, where iconic landmarks like the Eiffel Tower and the Louvre meet exquisite cuisine and vibrant culture. Paris enchants with its timeless charm and elegance.</strong></p>
+        </a>
+        <button id="dest"><a href="tnp.html#paris-tours">Explore Paris</a></button>
+      </div>
+    </div>
+    <div class="slide" id="slide2">
+      <div class="overlay-content">
+        <a href="tnp.html">
+          <h2><strong>Rome: The Eternal City</strong></h2>
+          <p><strong>Step into the grandeur of Rome, where ancient history and vibrant culture converge. Explore legendary sites like the Colosseum and Vatican City, and enjoy the rich flavors of Italian cuisine.</strong></p>
+        </a>
+        <button id="dest"><a href="tnp.html#rome-tours">Explore Rome</a></button>
+      </div>
+    </div>
+    <div class="slide" id="slide3">
+      <div class="overlay-content">
+        <a href="tnp.html">
+          <h2><strong>India: A Tapestry of Traditions</strong></h2>
+          <p><strong>Embark on a journey through India, a land of diverse cultures and breathtaking landscapes. Visit iconic landmarks like the Taj Mahal and explore vibrant cities rich in history and tradition.</strong></p>
+        </a>
+        <button id="dest"><a href="tnp.html#india-tours">Explore India</a></button>
+      </div>
+    </div>
+    <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+    <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+  </div>
+</section>
 
       <!-- Tours & Packages Section -->
       <!-- Tours & Packages Section -->
@@ -451,9 +441,7 @@ aria-hidden="true"
     <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Event listener for the World Map link
-      // Event listener for the World Map link
-// Event listener for the World Map link
+    
 // Event listener for the World Map link
 document.getElementById("worldMapLink").onclick = function (e) {
   e.preventDefault();
@@ -494,6 +482,27 @@ document.getElementById("search-icon").addEventListener("click", function () {
 document.getElementById("profileIcon").onclick = function () {
   document.getElementById("sidebar").style.width = "300px";
 };
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Initialize the slider
+showSlide(currentSlide);
     </script>
   </body>
 </html>
