@@ -13,7 +13,7 @@
   <header class="header">
     <h1><a href="../frontend/index.html">Membership Plans</a></h1>
   </header>
-
+ 
   <!-- Main Content -->
   <main class="container">
     <section class="membership-cards">
@@ -59,54 +59,57 @@
   <footer class="footer">
     <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
   </footer>
-
+  <div id="message"></div>
   <script>
-    // Predefined user ID
-    const userId = '67ed64cd9c929d8090c95537';
+    // Predefined user ID (this should be dynamically set based on the logged-in user)
+    const userId = '67ed64cd9c929d8090c95537'; // Replace with actual user ID
 
     // Map membershipType to actual membershipId
     const membershipMap = {
-      'Free': '67ed4d11511b360316d58fb2',
-      'Star': '67ed4d11511b360316d58fb3',
-      'Premium': '67ed4d11511b360316d58fb4'
-    };
-
-    // Map membershipType to personalized messages
-    const membershipMessages = {
-      'Free': 'You have successfully joined the Free Membership! Enjoy basic perks and community support.',
-      'Star': 'Congratulations on upgrading to Star Membership! Enjoy exclusive discounts and priority support.',
-      'Premium': 'Welcome to Premium Membership! Enjoy VIP events and personal travel consultancy.'
+        'Free': '67ed4d11511b360316d58fb2',
+        'Star': '67ed4d11511b360316d58fb3',
+        'Premium': '67ed4d11511b360316d58fb4'
     };
 
     function selectMembership(membershipType) {
-      const membershipId = membershipMap[membershipType];
+        const membershipId = membershipMap[membershipType];
 
-      fetch('http://localhost:5000/api/memberships/purchase', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ membershipId, userId }),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.message) {
-          alert(membershipMessages[membershipType]); // Display personalized message
-          // Optionally redirect or update the UI
-        } else {
-          alert('Failed to update membership');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-      });
+        fetch('http://localhost:5000/api/memberships/purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ membershipId, userId }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.message) {
+                // Display personalized message and membership details
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerHTML = `
+                    <p>${data.message}</p>
+                    <p>Membership Details:</p>
+                    <ul>
+                        <li>Name: ${data.membership.name}</li>
+                        <li>Price: $${data.membership.price}</li>
+                        <li>Benefits: ${data.membership.benefits}</li>
+                    </ul>
+                `;
+                alert(`Success: ${data.message}`); // Alert for successful purchase
+            } else {
+                alert('Failed to update membership');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.'); // Alert for errors
+        });
     }
-  </script>
+</script>
 </body>
 </html>
