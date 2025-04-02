@@ -11,7 +11,8 @@ h1 a {
 }
 
 h1 a:hover {
-  text-decoration: underline; /* Optional: underline on hover */
+  text-decoration-style: double;
+  color: rgb(0, 0, 0); /* Optional: underline on hover */
 }
 header {
   background-color: #0056b3;
@@ -32,7 +33,7 @@ table {
 }
 
 footer {
-  background-color: #f8f9fa;
+  background-color: #282829;
   color: #6c757d;
   padding: 10px 0;
 }

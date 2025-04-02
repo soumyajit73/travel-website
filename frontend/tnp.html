@@ -92,6 +92,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'Paris')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -179,6 +180,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'Rome')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -269,6 +271,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'Indonesia')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -369,6 +372,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'India')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -457,6 +461,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'Tokyo')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -542,6 +547,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'New York')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -629,6 +635,7 @@
           >
             Book Now
           </button>
+         <button class="star-button" onclick="togglePreferred(this, 'Sydney')" data-tooltip="Add to preferred locations">☆</button>
         </div>
       </section>
 
@@ -695,4 +702,40 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  <script>
+    function togglePreferred(button, location) {
+      let preferredLocations = JSON.parse(localStorage.getItem('preferredLocations')) || [];
+      let message = '';
+  
+      if (preferredLocations.includes(location)) {
+        preferredLocations = preferredLocations.filter(item => item !== location);
+        button.classList.remove('active');
+        button.setAttribute('data-tooltip', 'Add to preferred locations');
+        message = `${location} has been removed from your preferred locations.`;
+      } else {
+        preferredLocations.push(location);
+        button.classList.add('active');
+        button.setAttribute('data-tooltip', 'Remove from preferred locations');
+        message = `${location} has been added to your preferred locations.`;
+      }
+  
+      localStorage.setItem('preferredLocations', JSON.stringify(preferredLocations));
+      alert(message); // Display the alert message
+    }
+  
+    // Initialize buttons based on local storage
+    document.addEventListener('DOMContentLoaded', () => {
+      const preferredLocations = JSON.parse(localStorage.getItem('preferredLocations')) || [];
+      document.querySelectorAll('.tour-box').forEach(item => {
+        const location = item.querySelector('h2').textContent;
+        const button = item.querySelector('.star-button');
+        if (preferredLocations.includes(location)) {
+          button.classList.add('active');
+          button.setAttribute('data-tooltip', 'Remove from preferred locations');
+        } else {
+          button.setAttribute('data-tooltip', 'Add to preferred locations');
+        }
+      });
+    });
+  </script>
 </html>
