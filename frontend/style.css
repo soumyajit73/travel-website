@@ -5,15 +5,15 @@
   --font-family: "Arial", sans-serif;
 }
 #slide1 {
-  background-image: url('images/paris2.jpg'); /* Replace with your Paris image path */
+  background-image: url("images/paris2.jpg"); /* Replace with your Paris image path */
 }
 
 #slide2 {
-  background-image: url('images/rome2.webp'); /* Replace with your Rome image path */
+  background-image: url("images/rome2.webp"); /* Replace with your Rome image path */
 }
 
 #slide3 {
-  background-image: url('images/india3.jpg'); /* Replace with your India image path */
+  background-image: url("images/india3.jpg"); /* Replace with your India image path */
 }
 .slide {
   position: relative;
@@ -29,7 +29,12 @@
 }
 
 .overlay-content {
-  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent background for readability */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -122,7 +127,7 @@ body {
 
 .sidebar a {
   padding: 10px 25px;
-  text-decoration: none;
+  text-decoration: dotted;
   font-size: 20px;
   color: #ffffff;
   display: block;
@@ -169,7 +174,7 @@ body {
   position: relative;
   min-height: calc(100vh - 10px); /* Adjust based on footer height */
   color: rgb(255, 255, 255);
- 
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -496,10 +501,15 @@ section::before {
   max-width: 800px;
   margin: 0 auto;
   padding: 30px 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.6)
+  );
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   text-align: center;
   color: #000000; /* Text color */
 }
@@ -546,7 +556,7 @@ section::before {
   text-decoration: none;
 }
 #about .overlay-content h1,
-#tours .overlay-content h1 ,
+#tours .overlay-content h1,
 #contact .overlay-content h1 {
   color: #000000 !important;
   text-shadow: none; /* Remove any text-shadow if needed */
@@ -618,13 +628,12 @@ section::before {
   line-height: 1.6;
 }
 
-
 /* Slider Container */
 .slider {
   position: relative;
   overflow: visible; /* Allow arrows to be visible outside the slider */
   max-width: 800px;
- /* Adjust as needed */
+  /* Adjust as needed */
   margin: auto;
 }
 
@@ -653,7 +662,6 @@ section::before {
   right: -50px;
 }
 
-
 #destinations {
   /* Remove the background-image properties from the element itself */
   min-height: 100vh; /* Ensures the section covers the full viewport height */
@@ -680,7 +688,7 @@ section::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.75; /* Adjust this value for desired image opacity */
+  opacity: 1; /* Adjust this value for desired image opacity */
   z-index: -1;
 }
 
