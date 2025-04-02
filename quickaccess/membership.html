@@ -1,61 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Plans - RoamBuddy</title>
-    <link rel="stylesheet" href="membership.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership Plans - RoamBuddy</title>
+  <link rel="stylesheet" href="membership.css" />
+  <!-- Include jwt-decode from CDN if needed -->
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1> <a href="../frontend/index.html">Membership Plans</a></h1>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <h1><a href="../frontend/index.html">Membership Plans</a></h1>
+  </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <section class="membership-cards">
-            <!-- Free Membership -->
-            <div class="card card1">
-                <h2>Free Membership</h2>
-                <h3>Basic Perks</h3>
-                <ul>
-                   <strong> <li>+Access to basic travel guides</li></strong>
-                    <strong><li>+Community support</li></strong>
-                    <strong><li>+Monthly newsletter</li></strong>
-                </ul>
-                <button class="btn">Join Now</button>
-            </div>
+  <!-- Main Content -->
+  <main class="container">
+    <section class="membership-cards">
+      <!-- Free Membership -->
+      <div class="card card1">
+        <h2>Free Membership</h2>
+        <h3>Basic Perks</h3>
+        <ul>
+          <strong><li>+Access to basic travel guides</li></strong>
+          <strong><li>+Community support</li></strong>
+          <strong><li>+Monthly newsletter</li></strong>
+        </ul>
+        <button class="btn" onclick="selectMembership('Free')">Join Now</button>
+      </div>
 
-            <!-- Star Membership -->
-            <div class="card card2">
-                <h2>Star Membership</h2>
-                <ul>
-                     <h3>All Free Membership perks</h3>
-                   <strong>  <li>+10% discount on bookings</li></strong>
-                   <strong> <li>+Priority customer support</li></strong>
-                    <strong><li>+Exclusive travel recommendations</li></strong>
-                </ul>
-                <button class="btn">Upgrade Now</button>
-            </div>
+      <!-- Star Membership -->
+      <div class="card card2">
+        <h2>Star Membership</h2>
+        <ul>
+          <h3>All Free Membership perks</h3>
+          <strong><li>+10% discount on bookings</li></strong>
+          <strong><li>+Priority customer support</li></strong>
+          <strong><li>+Exclusive travel recommendations</li></strong>
+        </ul>
+        <button class="btn" onclick="selectMembership('Star')">Upgrade Now</button>
+      </div>
 
-            <!-- Premium Membership -->
-            <div class="card card3">
-                <h2>Premium Membership</h2>
-                <ul>
-                   <h3>All Star Membership perks</h3>
-                   <strong><li>+20% discount on bookings</li></strong>
-                    <strong><li>+Personal travel consultant</li></strong>
-                    <strong><li>+Access to VIP events</li></strong>
-                </ul>
-                <button class="btn">Go Premium</button>
-            </div>
-        </section>
-    </main>
+      <!-- Premium Membership -->
+      <div class="card card3">
+        <h2>Premium Membership</h2>
+        <ul>
+          <h3>All Star Membership perks</h3>
+          <strong><li>+20% discount on bookings</li></strong>
+          <strong><li>+Personal travel consultant</li></strong>
+          <strong><li>+Access to VIP events</li></strong>
+        </ul>
+        <button class="btn" onclick="selectMembership('Premium')">Go Premium</button>
+      </div>
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Predefined user ID
+    const userId = '67ed64cd9c929d8090c95537';
+
+    // Map membershipType to actual membershipId
+    const membershipMap = {
+      'Free': '67ed4d11511b360316d58fb2',
+      'Star': '67ed4d11511b360316d58fb3',
+      'Premium': '67ed4d11511b360316d58fb4'
+    };
+
+    // Map membershipType to personalized messages
+    const membershipMessages = {
+      'Free': 'You have successfully joined the Free Membership! Enjoy basic perks and community support.',
+      'Star': 'Congratulations on upgrading to Star Membership! Enjoy exclusive discounts and priority support.',
+      'Premium': 'Welcome to Premium Membership! Enjoy VIP events and personal travel consultancy.'
+    };
+
+    function selectMembership(membershipType) {
+      const membershipId = membershipMap[membershipType];
+
+      fetch('http://localhost:5000/api/memberships/purchase', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ membershipId, userId }),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.message) {
+          alert(membershipMessages[membershipType]); // Display personalized message
+          // Optionally redirect or update the UI
+        } else {
+          alert('Failed to update membership');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+    }
+  </script>
 </body>
 </html>
