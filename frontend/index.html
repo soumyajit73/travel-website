@@ -61,6 +61,7 @@
         z-index: 999;
       }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body id="home">
     <!-- Background Image Container -->
@@ -160,9 +161,31 @@
   <a href="../quickaccess/history.html">Booking History</a>
   <a href="../quickaccess/membership.html">Membership</a>
   <a href="#" id="worldMapLink">World Map</a>
-  <a href="../quickaccess/chatbot.html" id="chatbotLink">Chat bot</a> 
+  <a href="#" id="chatbotLink">Chat bot</a> 
 </div>
 
+<!-- Add this right after your sidebar div -->
+<div id="chatbotPopup" class="chatbot-popup">
+  <div class="chatbot-content">
+      <div class="chatbot-header">
+          <h2>Roam Bot</h2>
+          <span class="close-chatbot">&times;</span>
+      </div>
+      <div class="chatbot-body">
+          <iframe
+              src="https://www.chatbase.co/chatbot-iframe/5dmiWBhalYG-CCmuDHF9K"
+              width="100%"
+              height="100%"
+              frameborder="0"
+          ></iframe>
+      </div>
+  </div>
+</div>
+
+<button id="chatButton" class="chat-button">
+  <i class="fas fa-comments"></i>
+  Chat with Us
+</button>
     <!-- Map Container -->
  <!-- Map Container -->
 <div id="map">
@@ -579,5 +602,38 @@ loginForm.addEventListener('submit', async function (event) {
         }
       });
     });
+
+
+    // chatbot js
+    document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatbotPopup = document.getElementById('chatbotPopup');
+    const closeButton = document.querySelector('.close-chatbot');
+    const chatbotLink = document.getElementById('chatbotLink');
+
+    function toggleChatbot() {
+        chatbotPopup.classList.toggle('show');
+        chatButton.style.display = chatbotPopup.classList.contains('show') ? 'none' : 'flex';
+    }
+
+    chatButton.addEventListener('click', toggleChatbot);
+    
+    if (chatbotLink) {
+        chatbotLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleChatbot();
+            document.getElementById('sidebar').style.width = "0";
+        });
+    }
+
+    closeButton.addEventListener('click', toggleChatbot);
+
+    // Close when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === chatbotPopup) {
+            toggleChatbot();
+        }
+    });
+});
   </script>
 </html>
