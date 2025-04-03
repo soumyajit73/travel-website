@@ -5,9 +5,13 @@ body {
   background-color: #e9e6e6bd;
   
 }
-h1 a {
+a{
+  color: aliceblue;
+  text-decoration: none;
+}
+ a {
   text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherits the color from the h1 */
+  color: white; /* Inherits the color from the h1 */
 }
 
 h1 a:hover {
