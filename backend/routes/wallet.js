@@ -15,11 +15,11 @@ router.get("/wallet", async (req, res) => {
       });
     }
 
-    let wallet = await Wallet.findOne({ userId: user._id });
+    let wallet = await Wallet.findOne({ userId: '67ed91b8573d5e757fe7107a' });
 
     if (!wallet) {
       wallet = new Wallet({
-        userId: user._id,
+        userId: '67ed91b8573d5e757fe7107a',
         balance: 0,
         transactions: [],
       });
@@ -53,11 +53,11 @@ router.post("/wallet/add-funds", async (req, res) => {
       });
     }
 
-    let wallet = await Wallet.findOne({ userId: user._id });
+    let wallet = await Wallet.findOne({ userId: '67ed91b8573d5e757fe7107a' });
 
     if (!wallet) {
       wallet = new Wallet({
-        userId: user._id,
+        userId: '67ed91b8573d5e757fe7107a',
         balance: 0,
         transactions: [],
       });
@@ -98,7 +98,7 @@ router.get("/wallet/summary", async (req, res) => {
       });
     }
 
-    const wallet = await Wallet.findOne({ userId: user._id });
+    const wallet = await Wallet.findOne({ userId: '67ed91b8573d5e757fe7107a' });
 
     if (!wallet) {
       return res.status(404).json({
@@ -161,7 +161,7 @@ router.post('/wallet/withdraw', async (req, res) => {
           });
       }
 
-      let wallet = await Wallet.findOne({ userId: user._id });
+      let wallet = await Wallet.findOne({ userId: '67ed91b8573d5e757fe7107a' });
       if (!wallet) {
           return res.status(404).json({
               success: false,

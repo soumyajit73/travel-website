@@ -134,18 +134,39 @@
                 <i class="fas fa-user profile-icon" id="profileIcon"></i>
               </li>
             </ul>
-            <form class="d-flex ms-3" role="search" id="search-form">
+            <form class="d-flex ms-3" role="search" id="search-form" onsubmit="return handleSearch(event)">
               <div class="input-group">
-                <span class="input-group-text" id="search-icon">🔍</span>
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  name="query"
-                />
+                <style>
+                  /* Add this to your existing style section */
+.input-group {
+    position: relative;
+}
+
+#searchInput {
+    padding-right: 30px;
+}
+
+#search-icon {
+    cursor: pointer;
+}
+
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+                </style>
+                  <span class="input-group-text" id="search-icon">🔍</span>
+                  <input
+                      class="form-control"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                      id="searchInput"
+                      list="searchSuggestions"
+                  />
+                  <datalist id="searchSuggestions"></datalist>
               </div>
-            </form>
+          </form>
           </div>
         </div>
       </nav>
@@ -634,6 +655,69 @@ loginForm.addEventListener('submit', async function (event) {
             toggleChatbot();
         }
     });
+});
+// Add this to your existing script section
+const searchMappings = {
+    // Navigation links
+    'home': '#home',
+    'about': '#about',
+    'destinations': '#destinations',
+    'tours': '#tours',
+    'contact': '#contact',
+    
+    // Sidebar tools
+    'wallet': '../quickaccess/wallet.html',
+    'preferred destinations': '../quickaccess/locationpref.html',
+    'booking history': '../quickaccess/history.html',
+    'membership': '../quickaccess/membership.html',
+    
+    // Destinations
+    'paris': 'tnp.html#paris-tours',
+    'rome': 'tnp.html#rome-tours',
+    'india': 'tnp.html#india-tours',
+};
+// Add this to your existing script section
+function handleSearch(event) {
+    event.preventDefault();
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // Check if the search term exists in our mappings
+    for (let key in searchMappings) {
+        if (key.includes(searchTerm) || searchTerm.includes(key)) {
+            const destination = searchMappings[key];
+            
+            // Handle internal links (with #)
+            if (destination.startsWith('#')) {
+                document.querySelector(destination).scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Handle external pages
+                window.location.href = destination;
+            }
+            return false;
+        }
+    }
+    
+    // If no match is found
+    alert('No matching page found for: ' + searchTerm);
+    return false;
+}
+
+// Add autocomplete functionality
+function initializeSearchSuggestions() {
+    const datalist = document.getElementById('searchSuggestions');
+    const searchableItems = Object.keys(searchMappings);
+    
+    searchableItems.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item;
+        datalist.appendChild(option);
+    });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSearchSuggestions();
 });
   </script>
 </html>

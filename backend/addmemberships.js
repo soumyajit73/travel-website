@@ -7,11 +7,10 @@ mongoose.connect(
 );
 
 const memberships = [
-  { name: "Free", price: 10, benefits: "Basic benefits" },
+  { name: "Free", price: 0, benefits: "Basic benefits" },
   { name: "Star", price: 30, benefits: "Star benefits" },
   { name: "Premium", price: 50, benefits: "Premium benefits" },
 ];
-
 
 const addMemberships = async () => {
   try {
