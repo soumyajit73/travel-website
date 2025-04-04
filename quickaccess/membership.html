@@ -66,9 +66,8 @@
     <footer class="footer">
       <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
     </footer>
-    
+
     <script>
-      
       // Predefined user ID (this should be dynamically set based on the logged-in user)
       const userId = "67ed64cd9c929d8090c95537"; // Replace with actual user ID
 
@@ -104,11 +103,13 @@
                     <p>Membership Details:</p>
                     <ul>
                         <li>Name: ${data.membership.name}</li>
-                        <li>Price: $${data.membership.price}</li>
+                        <li>Price: ${data.membership.price}</li>
                         <li>Benefits: ${data.membership.benefits}</li>
                     </ul>
                 `;
-              alert(`Success: You have successfully purchased the ${data.membership.name} membership`); // Alert for successful purchase
+              alert(
+                `Success: You have successfully purchased the ${data.membership.name} membership`
+              ); // Alert for successful purchase
             } else {
               alert("Failed to update membership");
             }

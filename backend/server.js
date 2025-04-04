@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
-const walletRoutes = require("./routes/Wallet");
+const walletRoutes = require("./routes/wallet");
 app.use("/api", walletRoutes);
 
 const PORT = process.env.PORT || 5000;
