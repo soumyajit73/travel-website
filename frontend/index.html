@@ -658,50 +658,71 @@ loginForm.addEventListener('submit', async function (event) {
 });
 // Add this to your existing script section
 const searchMappings = {
-    // Navigation links
+    // Navigation links for internal sections
     'home': '#home',
     'about': '#about',
-    'destinations': '#destinations',
     'tours': '#tours',
     'contact': '#contact',
     
-    // Sidebar tools
+    // Quick Access Pages (External Pages)
     'wallet': '../quickaccess/wallet.html',
     'preferred destinations': '../quickaccess/locationpref.html',
-    'booking history': '../quickaccess/history.html',
+    'preferences': '../quickaccess/locationpref.html',
+    'booking': '../quickaccess/history.html',
+    'history': '../quickaccess/history.html',
     'membership': '../quickaccess/membership.html',
+    'more destinations': '../frontend/tnp.html',
+    // 'explore': '../frontend/tnp.html',
+    'explore more': '../frontend/tnp.html',
     
-    // Destinations
-    'paris': 'tnp.html#paris-tours',
-    'rome': 'tnp.html#rome-tours',
-    'india': 'tnp.html#india-tours',
+    // Tour Destinations
+    'paris': '../tnp.html#paris-tours',
+    'rome': '../tnp.html#rome-tours',
+    'india': '../tnp.html#india-tours'
 };
-// Add this to your existing script section
+
 function handleSearch(event) {
     event.preventDefault();
     const searchInput = document.getElementById('searchInput');
     const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // Check if search term is empty
+    if (!searchTerm) {
+        alert('Please enter a search term');
+        return false;
+    }
 
     // Check if the search term exists in our mappings
     for (let key in searchMappings) {
         if (key.includes(searchTerm) || searchTerm.includes(key)) {
             const destination = searchMappings[key];
             
-            // Handle internal links (with #)
+            // For internal links (sections within the same page)
             if (destination.startsWith('#')) {
-                document.querySelector(destination).scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // Handle external pages
-                window.location.href = destination;
+                const element = document.querySelector(destination);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } 
+            // For external pages
+            else {
+                window.location = destination;
             }
             return false;
         }
     }
     
-    // If no match is found
     alert('No matching page found for: ' + searchTerm);
     return false;
 }
+
+// Add event listener to the search form
+document.getElementById('search-form').addEventListener('submit', handleSearch);
+
+// Optional: Add event listener to search icon if you want to trigger search on icon click
+document.getElementById('search-icon').addEventListener('click', function() {
+    document.getElementById('search-form').dispatchEvent(new Event('submit'));
+});
 
 // Add autocomplete functionality
 function initializeSearchSuggestions() {
