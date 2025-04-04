@@ -531,25 +531,87 @@ document.getElementById("profileIcon").onclick = function () {
 };
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
+let slideInterval;
+const SLIDE_INTERVAL_TIME = 3000;
+let isTransitioning = false; // Add a flag to prevent multiple transitions
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.display = i === index ? 'block' : 'none';
-  });
+    if (isTransitioning) return; // Prevent multiple transitions
+    isTransitioning = true;
+    
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+    });
+    
+    // Reset transition flag after a short delay
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 100);
 }
 
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+    if (isTransitioning) return;
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+    console.log('Next slide:', currentSlide); // Debug log
 }
 
 function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+    if (isTransitioning) return;
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+    console.log('Previous slide:', currentSlide); // Debug log
 }
 
-// Initialize the slider
-showSlide(currentSlide);
+function resetSlideTimer() {
+    console.log('Timer reset'); // Debug log
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, SLIDE_INTERVAL_TIME);
+}
+
+// Arrow click handlers with debounce
+let lastClickTime = 0;
+const DEBOUNCE_TIME = 300; // Minimum time between clicks
+
+document.querySelector('.left').addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTime = Date.now();
+    if (currentTime - lastClickTime < DEBOUNCE_TIME) return;
+    lastClickTime = currentTime;
+    
+    prevSlide();
+    resetSlideTimer();
+});
+
+document.querySelector('.right').addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTime = Date.now();
+    if (currentTime - lastClickTime < DEBOUNCE_TIME) return;
+    lastClickTime = currentTime;
+    
+    nextSlide();
+    resetSlideTimer();
+});
+
+function initializeSlider() {
+    showSlide(currentSlide);
+    resetSlideTimer();
+
+    const slider = document.querySelector('.slider');
+    
+    slider.addEventListener('mouseenter', () => {
+        console.log('Slider pause'); // Debug log
+        clearInterval(slideInterval);
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        console.log('Slider resume'); // Debug log
+        resetSlideTimer();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializeSlider);
+
     </script>
 
   </body>

@@ -702,6 +702,18 @@ section::before {
   /* Adjust as needed */
   margin: auto;
 }
+.slider {
+  position: relative;
+}
+
+.slide {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.slider.transitioning {
+  pointer-events: none;
+}
+
 
 /* Slider Arrow Buttons */
 .arrow {
