@@ -5,29 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Wallet - RoamBuddy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Existing styles */
         .transaction-amount.credit { color: #28a745; }
         .transaction-amount.debit { color: #dc3545; }
-    </style>
-    <style>
         .addition {
-            color: #28a745 !important; /* Green for additions */
+            color: #28a745 !important;
             font-weight: bold;
         }
         .withdrawal {
-            color: #dc3545 !important; /* Red for withdrawals */
+            color: #dc3545 !important;
             font-weight: bold;
         }
-        body{
+        body {
             background-color: #ffffffa3;
         }
-        a{
+        a {
             color: aliceblue;
             text-decoration: none;
         }
-        a:hover{
+        a:hover {
             color: rgb(255, 204, 74);
         }
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar h1 {
+    color: #818181;
+    padding: 10px 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.closebtn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+    color: #818181;
+}
+
+/* Profile Icon styles */
+.profile-icon-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Map styles */
+#map {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+}
+
+/* Main content adjustment */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header adjustment */
+header {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure sidebar is above other content */
+#sidebar {
+    z-index: 1001;
+}
+
+/* Add overlay when sidebar is open */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Adjust sidebar links spacing */
+.sidebar a:not(.closebtn) {
+    margin: 5px 0;
+    padding: 15px 25px;
+}
+
+/* Active link style */
+.sidebar a.active {
+    background-color: #1a1a1a;
+    color: white;
+}
+        /* Sidebar styles */
+        /* Update these chatbot styles in your CSS section */
+.chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;  /* Adjusted position */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.chatbot-popup.show {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+.chatbot-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-header {
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chatbot-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-chatbot {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 0 5px;
+}
+
+.close-chatbot:hover {
+    color: #f0f0f0;
+}
+
+.chatbot-body {
+    flex: 1;
+    overflow: hidden;
+}
+
+.chatbot-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.chat-button:hover {
+    transform: scale(1.05);
+    background: #0056b3;
+}
+
+.chat-button i {
+    font-size: 20px;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
     </style>
 </head>
 <body>
@@ -35,6 +254,72 @@
         <h1><a href="../frontend/index.html">Travel Wallet</a></h1>
     </header>
 
+    <!-- Profile Icon -->
+    <div class="profile-icon-container">
+        <i class="fas fa-user profile-icon" id="profileIcon"></i>
+    </div>
+
+    <!-- Sidebar -->
+  <!-- Profile Icon -->
+
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div id="sidebar" class="sidebar">
+    <a href="#" class="closebtn" id="closeSidebar">&times;</a>
+    <h1>Quick Features</h1>
+    <div class="sidebar-links">
+        <a href="../frontend/index.html#home">Home</a>
+        <a href="wallet.html" class="active">Travel Wallet</a>
+        <a href="locationpref.html">Preferred Destinations</a>
+        <a href="history.html">Booking History</a>
+        <a href="membership.html">Membership</a>
+        <a href="#" id="worldMapLink">World Map</a>
+        <a href="#" id="chatbotLink">Chat bot</a>
+    </div>
+</div>
+
+    <!-- Map Container -->
+  <!-- Map Container -->
+<div id="map">
+    <div class="map-overlay">
+        <button class="close-map" id="closeMap">&times; Close Map</button>
+    </div>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58856950.88753749!2d-15.956341145610649!3d25.792249501387207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1743496476411!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+</div>
+
+    <!-- Chatbot Popup -->
+    <div id="chatbotPopup" class="chatbot-popup">
+        <div class="chatbot-content">
+            <div class="chatbot-header">
+                <h2>Roam Bot</h2>
+                <span class="close-chatbot">&times;</span>
+            </div>
+            <div class="chatbot-body">
+                <iframe
+                    src="https://www.chatbase.co/chatbot-iframe/5dmiWBhalYG-CCmuDHF9K"
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <button id="chatButton" class="chat-button">
+        <i class="fas fa-comments"></i>
+        Chat with Us
+    </button>
+
+    <!-- Your existing wallet content -->
     <main class="container my-5">
         <!-- Balance Section -->
         <section id="wallet-balance" class="mb-4">
@@ -97,22 +382,28 @@
         </section>
     </main>
 
+    <footer class="text-center py-3 bg-light">
+        <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-          const API_URL = 'http://localhost:5000';
+        const API_URL = 'http://localhost:5000';
 
-async function fetchWallet() {
-    try {
-        const response = await fetch(`${API_URL}/api/wallet`);
-        const data = await response.json();
-        if (data.success) {
-            updateUI(data.wallet);
+        // Your existing wallet functionality
+        async function fetchWallet() {
+            try {
+                const response = await fetch(`${API_URL}/api/wallet`);
+                const data = await response.json();
+                if (data.success) {
+                    updateUI(data.wallet);
+                }
+            } catch (error) {
+                console.error('Error fetching wallet:', error);
+            }
         }
-    } catch (error) {
-        console.error('Error fetching wallet:', error);
-    }
-}
 
-   function updateUI(wallet) {
+        function updateUI(wallet) {
             document.getElementById('balance').textContent = wallet.balance.toFixed(2);
             
             const transactionList = document.getElementById('transaction-list');
@@ -129,10 +420,9 @@ async function fetchWallet() {
                 `).join('');
         }
 
-        // Handle add funds
+        // Add funds handler
         document.getElementById('add-funds-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const amount = document.getElementById('deposit-amount').value;
 
             try {
@@ -159,10 +449,9 @@ async function fetchWallet() {
             }
         });
 
-        // Handle withdraw funds
+        // Withdraw funds handler
         document.getElementById('withdraw-funds-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const amount = document.getElementById('withdraw-amount').value;
 
             try {
@@ -179,7 +468,7 @@ async function fetchWallet() {
                 if (data.success) {
                     alert('Withdrawal successful!');
                     document.getElementById('withdraw-amount').value = '';
-                    fetchWallet(); // Refresh wallet data
+                    fetchWallet();
                 } else {
                     alert('Withdrawal failed: ' + data.message);
                 }
@@ -189,14 +478,135 @@ async function fetchWallet() {
             }
         });
 
-        // Load wallet data when page loads
-        fetchWallet();
+        // Sidebar functionality
+      // Update your sidebar JavaScript
+document.getElementById("profileIcon").onclick = function(e) {
+    e.stopPropagation();
+    document.getElementById("sidebar").style.width = "300px";
+    document.getElementById("sidebarOverlay").style.display = "block";
+};
+
+document.getElementById("closeSidebar").onclick = function(e) {
+    e.stopPropagation();
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("sidebarOverlay").style.display = "none";
+};
+
+// Close sidebar when clicking overlay
+document.getElementById("sidebarOverlay").onclick = function() {
+    document.getElementById("sidebar").style.width = "0";
+    this.style.display = "none";
+};
+
+// Prevent sidebar from closing when clicking inside it
+document.getElementById("sidebar").onclick = function(e) {
+    e.stopPropagation();
+};
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchWallet();
+
+            const chatButton = document.getElementById('chatButton');
+            const chatbotPopup = document.getElementById('chatbotPopup');
+            const closeButton = document.querySelector('.close-chatbot');
+            const chatbotLink = document.getElementById('chatbotLink');
+
+            function toggleChatbot() {
+                chatbotPopup.classList.toggle('show');
+                chatButton.style.display = chatbotPopup.classList.contains('show') ? 'none' : 'flex';
+            }
+
+            chatButton.addEventListener('click', toggleChatbot);
+            closeButton.addEventListener('click', toggleChatbot);
+
+            chatbotLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('sidebar').style.width = "0";
+                toggleChatbot();
+            });
+        });
+
+        // Close features when clicking outside
+        document.addEventListener('click', function(e) {
+            const map = document.getElementById("map");
+            const sidebar = document.getElementById('sidebar');
+            const profileIcon = document.getElementById('profileIcon');
+            const chatbotPopup = document.getElementById('chatbotPopup');
+            const chatButton = document.getElementById('chatButton');
+
+            // Close map
+            if (map.style.display === "block" && !map.contains(e.target) && e.target.id !== "worldMapLink") {
+                map.style.display = "none";
+            }
+
+            // Close sidebar
+            if (!sidebar.contains(e.target) && 
+                e.target !== profileIcon && 
+                !chatbotPopup.contains(e.target) && 
+                e.target !== chatButton) {
+                sidebar.style.width = "0";
+            }
+
+            // Close chatbot
+            if (!chatbotPopup.contains(e.target) && 
+                e.target !== chatButton && 
+                !e.target.closest('#chatButton') && 
+                e.target !== document.getElementById('chatbotLink')) {
+                chatbotPopup.classList.remove('show');
+                chatButton.style.display = 'flex';
+            }
+            // Map functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const worldMapLink = document.getElementById("worldMapLink");
+    const map = document.getElementById("map");
+    const closeMapButton = document.getElementById("closeMap");
+
+    // Open map
+    worldMapLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.style.display = "block";
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("sidebarOverlay").style.display = "none";
+    });
+
+    // Close map with button
+    closeMapButton.addEventListener('click', function() {
+        map.style.display = "none";
+    });
+
+    // Close map with escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && map.style.display === "block") {
+            map.style.display = "none";
+        }
+    });
+
+    // Prevent map from closing when clicking inside it
+    map.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+
+// Update your existing click handler
+document.addEventListener('click', function(e) {
+    const map = document.getElementById("map");
+    const sidebar = document.getElementById('sidebar');
+    const profileIcon = document.getElementById('profileIcon');
+    const chatbotPopup = document.getElementById('chatbotPopup');
+    const chatButton = document.getElementById('chatButton');
+
+    // Close map if clicking outside
+    if (map.style.display === "block" && 
+        !map.contains(e.target) && 
+        e.target.id !== "worldMapLink" &&
+        e.target.id !== "closeMap") {
+        map.style.display = "none";
+    }
+
+    // Your existing sidebar and chatbot close handlers...
+});
+        });
     </script>
-
-    <footer class="text-center py-3 bg-light">
-        <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
