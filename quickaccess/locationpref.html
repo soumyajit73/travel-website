@@ -12,6 +12,60 @@
     <header class="header">
         <h1><a href="../frontend/index.html">Preferred Locations</a></h1>
     </header>
+    <div class="profile-icon-container">
+        <i class="fas fa-user profile-icon" id="profileIcon"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="closebtn" id="closeSidebar">&times;</a>
+        <h1>Quick Features</h1>
+        <a href="../frontend/index.html#home">Home</a>
+        <a href="wallet.html">Travel Wallet</a>
+        <a href="locationpref.html">Preferred Destinations</a>
+        <a href="history.html">Booking History</a>
+        <a href="membership.html">Membership</a>
+        <a href="#" id="worldMapLink">World Map</a>
+        <a href="#" id="chatbotLink">Chat bot</a> 
+        
+    </div>
+
+    <!-- Map Container -->
+    <div id="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58856950.88753749!2d-15.956341145610649!3d25.792249501387207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1743496476411!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </div>
+
+    <!-- Chatbot Popup -->
+<div id="chatbotPopup" class="chatbot-popup">
+    <div class="chatbot-content">
+        <div class="chatbot-header">
+            <h2>Roam Bot</h2>
+            <span class="close-chatbot">&times;</span>
+        </div>
+        <div class="chatbot-body">
+            <iframe
+                src="https://www.chatbase.co/chatbot-iframe/5dmiWBhalYG-CCmuDHF9K"
+                width="100%"
+                height="100%"
+                frameborder="0"
+            ></iframe>
+        </div>
+    </div>
+</div>
+
+<button id="chatButton" class="chat-button">
+    <i class="fas fa-comments"></i>
+    Chat with Us
+</button>
+    
 
     <!-- Main Content -->
     <main class="container">
@@ -121,6 +175,98 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', displayPreferredLocations);
+
+        // sidebar logic
+        
+document.getElementById("profileIcon").onclick = function() {
+    document.getElementById("sidebar").style.width = "300px";
+};
+
+document.getElementById("closeSidebar").onclick = function() {
+    document.getElementById("sidebar").style.width = "0";
+};
+
+// World Map functionality
+document.getElementById("worldMapLink").onclick = function(e) {
+    e.preventDefault();
+    document.getElementById("map").style.display = "block";
+    document.getElementById("sidebar").style.width = "0";
+};
+
+// Close map when clicking outside
+document.addEventListener("click", function(e) {
+    const map = document.getElementById("map");
+    if (map.style.display === "block" && !map.contains(e.target) && e.target.id !== "worldMapLink") {
+        map.style.display = "none";
+    }
+});
+
+// Chatbot functionality (if needed)
+document.getElementById("chatbotLink").onclick = function(e) {
+    e.preventDefault();
+    // Add your chatbot implementation here
+    document.getElementById("sidebar").style.width = "0";
+};
+
+// Close sidebar when clicking outside
+document.addEventListener('click', function(e) {
+    const sidebar = document.getElementById('sidebar');
+    const profileIcon = document.getElementById('profileIcon');
+    
+    if (!sidebar.contains(e.target) && e.target !== profileIcon) {
+        sidebar.style.width = "0";
+    }
+});
+// Chatbot functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatbotPopup = document.getElementById('chatbotPopup');
+    const closeButton = document.querySelector('.close-chatbot');
+    const chatbotLink = document.getElementById('chatbotLink');
+
+    function toggleChatbot() {
+        chatbotPopup.classList.toggle('show');
+        chatButton.style.display = chatbotPopup.classList.contains('show') ? 'none' : 'flex';
+    }
+
+    // Chat button click
+    chatButton.addEventListener('click', toggleChatbot);
+
+    // Close button click
+    closeButton.addEventListener('click', toggleChatbot);
+
+    // Sidebar chatbot link click
+    chatbotLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('sidebar').style.width = "0";
+        toggleChatbot();
+    });
+
+    // Close chatbot when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!chatbotPopup.contains(e.target) && 
+            e.target !== chatButton && 
+            !e.target.closest('#chatButton') && 
+            e.target !== chatbotLink) {
+            chatbotPopup.classList.remove('show');
+            chatButton.style.display = 'flex';
+        }
+    });
+});
+
+// Update the existing sidebar click handler to not close chatbot
+document.addEventListener('click', function(e) {
+    const sidebar = document.getElementById('sidebar');
+    const profileIcon = document.getElementById('profileIcon');
+    const chatbotPopup = document.getElementById('chatbotPopup');
+    
+    if (!sidebar.contains(e.target) && 
+        e.target !== profileIcon && 
+        !chatbotPopup.contains(e.target) && 
+        e.target !== document.getElementById('chatButton')) {
+        sidebar.style.width = "0";
+    }
+});
     </script>
 
     <style>
