@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preferred Locations - RoamBuddy</title>
     <link rel="stylesheet" href="locationpref.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,20 +17,12 @@
     <main class="container">
         <section id="preferred-locations">
             <h2>Your Preferred Locations</h2>
-            <ul class="location-list">
-                <li>
-                    <h3>Paris, France</h3>
-                    <p>Known for its cafes, art museums, and the iconic Eiffel Tower.</p>
-                </li>
-                <li>
-                    <h3>Kyoto, Japan</h3>
-                    <p>Famous for its classical Buddhist temples, as well as gardens, imperial palaces, and traditional wooden houses.</p>
-                </li>
-                <li>
-                    <h3>New York City, USA</h3>
-                    <p>Renowned for its vibrant culture, iconic skyline, and landmarks like Times Square and Central Park.</p>
-                </li>
-            </ul>
+            <div id="location-container" class="location-list">
+                <!-- Locations will be dynamically added here -->
+            </div>
+            <div id="no-locations" style="display: none;">
+                <p>No preferred locations yet. Visit our <a href="../frontend/tnp.html">Tours & Packages</a> page to add some!</p>
+            </div>
         </section>
     </main>
 
@@ -37,5 +30,170 @@
     <footer class="footer">
         <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Location information mapping
+        const locationInfo = {
+            'Paris': {
+                country: 'France',
+                description: 'Known for its cafes, art museums, and the iconic Eiffel Tower.',
+                image: '../frontend/images/paris.jpg'
+            },
+            'Rome': {
+                country: 'Italy',
+                description: 'Home to ancient ruins, artistic masterpieces, and Vatican City.',
+                image: '../frontend/images/rome2.webp'
+            },
+            'India': {
+                country: 'Asia',
+                description: 'Rich in culture, history, and home to the magnificent Taj Mahal.',
+                image: '../frontend/images/india3.jpg'
+            },
+            'Indonesia': {
+                country: 'Asia',
+                description: 'Famous for its beautiful beaches, temples, and diverse culture.',
+                image: '../frontend/images/indonesia.jpg'
+            },
+            'Tokyo': {
+                country: 'Japan',
+                description: 'A bustling metropolis blending modern technology with traditional culture.',
+                image: '../frontend/images/tokyo tower-thumb.jpg'
+            },
+            'New York': {
+                country: 'USA',
+                description: 'The city that never sleeps, known for its iconic skyline and diverse culture.',
+                image: '../frontend/images/nyc.jpg'
+            },
+            'Sydney': {
+                country: 'Australia',
+                description: 'Famous for its Opera House, beautiful harbors, and vibrant culture.',
+                image: '../frontend/images/sydeney.webp'
+            }
+        };
+
+        // Function to display preferred locations
+        function displayPreferredLocations() {
+            const container = document.getElementById('location-container');
+            const noLocations = document.getElementById('no-locations');
+            const preferredLocations = JSON.parse(localStorage.getItem('preferredLocations')) || [];
+
+            container.innerHTML = ''; // Clear existing content
+
+            if (preferredLocations.length === 0) {
+                noLocations.style.display = 'block';
+                return;
+            }
+
+            noLocations.style.display = 'none';
+            preferredLocations.forEach(location => {
+                const locationData = locationInfo[location] || {
+                    country: '',
+                    description: 'No description available.',
+                    image: '../assets/images/default.jpg'
+                };
+
+                const locationElement = document.createElement('div');
+                locationElement.className = 'location-card';
+                locationElement.innerHTML = `
+                    <div class="location-image">
+                        <img src="${locationData.image}" alt="${location}" onerror="this.src='../assets/images/default.jpg'">
+                    </div>
+                    <div class="location-info">
+                        <h3>${location}${locationData.country ? `, ${locationData.country}` : ''}</h3>
+                        <p>${locationData.description}</p>
+                        <button class="remove-btn" onclick="removeLocation('${location}')">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                `;
+                container.appendChild(locationElement);
+            });
+        }
+
+        // Function to remove a location
+        function removeLocation(location) {
+            let preferredLocations = JSON.parse(localStorage.getItem('preferredLocations')) || [];
+            preferredLocations = preferredLocations.filter(item => item !== location);
+            localStorage.setItem('preferredLocations', JSON.stringify(preferredLocations));
+            displayPreferredLocations();
+            alert(`${location} has been removed from your preferred locations.`);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', displayPreferredLocations);
+    </script>
+
+    <style>
+        .location-card {
+            display: flex;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .location-image {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .location-info {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .location-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .location-info p {
+            margin: 0 0 15px 0;
+            color: #666;
+        }
+
+        .remove-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #cc0000;
+        }
+
+        #no-locations {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        #no-locations a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #no-locations a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
 </body>
 </html>
