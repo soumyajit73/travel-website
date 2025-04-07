@@ -62,6 +62,7 @@
       }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body id="home">
     <!-- Background Image Container -->
@@ -361,10 +362,75 @@
       <footer class="text-center mt-5">
         <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
         <p>Follow us on social media:</p>
-        <a href="#" class="me-2">Facebook</a>
-        <a href="#" class="me-2">Twitter</a>
-        <a href="#">Instagram</a>
-      </footer>
+        <div class="social-links">
+            <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <style>footer {
+      background-color: #212121;
+      color: #ffffff;
+      padding: 30px 0;
+      width: 100%;
+      margin: 0;
+  }
+  
+  .social-links {
+      margin-top: 20px;
+  }
+  
+  .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #212121;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Specific colors for each social media platform */
+  .fa-facebook-f {
+      color: #3b5998;
+  }
+  
+  .fa-twitter {
+      color: #1da1f2;
+  }
+  
+  .fa-instagram {
+      color: #e1306c;
+  }
+  
+  /* Hover effects for icons */
+  .social-icon:hover .fab {
+      transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .social-icon {
+          width: 35px;
+          height: 35px;
+          margin: 0 8px;
+      }
+  }</style>
     </main>
 
     <!-- Login Modal -->
