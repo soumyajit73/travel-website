@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="history.css" />
   </head>
   <body>
-  
-   
-
     <!-- Header -->
     <header class="header">
       <h1><a href="../frontend/index.html">Booking History</a></h1>
     </header>
-
+  
     <!-- Main Content -->
     <main class="container">
       <section id="booking-history">
@@ -28,30 +25,59 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>2023-10-01</td>
-              <td>Flight to Paris</td>
-              <td>$500</td>
-            </tr>
-            <tr>
-              <td>2023-09-15</td>
-              <td>Hotel in Rome</td>
-              <td>$300</td>
-            </tr>
-            <tr>
-              <td>2023-09-10</td>
-              <td>Car Rental in Sydney</td>
-              <td>$150</td>
-            </tr>
+            <!-- Contents will be rendered dynamically -->
           </tbody>
         </table>
       </section>
     </main>
-
+  
     <!-- Footer -->
     <footer class="footer">
       <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
     </footer>
-  </body>
+  
+    <!-- Booking History Logic -->
+    <script>
+      const API_URL = 'http://localhost:5000'; // Adjust based on your API
 
+      async function fetchBookingHistory() {
+        try {
+          const response = await fetch(`${API_URL}/api/booking-history`);
+          // Assuming the endpoint returns an array directly
+          const data = await response.json();
+          return data.bookings || []; // Adjust based on your API response structure
+        } catch (error) {
+          console.error('Error fetching booking history:', error);
+          return [];
+        }
+      }
+      
+      function renderBookingHistory(bookings) {
+        const tbody = document.querySelector('.booking-table tbody');
+        tbody.innerHTML = ''; // Clear any existing content
+        if (bookings.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3">No bookings found.</td></tr>';
+          return;
+        }
+        bookings.forEach(booking => {
+          const row = document.createElement('tr');
+          // Adjust key names based on your API response
+          const date = new Date(booking.date).toLocaleDateString();
+          const description = booking.description || booking.tourName || 'N/A';
+          const amount = `$${booking.amount}`;
+          row.innerHTML = `
+            <td>${date}</td>
+            <td>${description}</td>
+            <td>${amount}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+      
+      document.addEventListener('DOMContentLoaded', async () => {
+        const bookings = await fetchBookingHistory();
+        renderBookingHistory(bookings);
+      });
+    </script>
+  </body>
 </html>

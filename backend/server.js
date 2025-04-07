@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const membershipRoutes = require("./routes/membership");
+const bookingRoutes = require('./routes/booking');
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(
 // Middleware to parse JSON
 app.use(express.json());
 app.use("/api/memberships", membershipRoutes);
+app.use('/api', bookingRoutes);
 
 // Connect to MongoDB
 mongoose
