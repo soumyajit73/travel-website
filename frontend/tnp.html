@@ -97,60 +97,29 @@
       </section>
 
       <!-- Modal for Paris -->
-      <div
-        class="modal fade"
-        id="parisModal"
-        tabindex="-1"
-        aria-labelledby="parisModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="parisModal" tabindex="-1" aria-labelledby="parisModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="parisModalLabel">
-                Book Your Paris Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="parisOption"
-                    id="parisDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="parisDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="parisModalLabel">Book Your Paris Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="parisOption"
-                    id="parisNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="parisNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="parisBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="parisOption" id="parisDayTour" value="Day Tour" data-price="150" />
+                            <label class="form-check-label" for="parisDayTour">Book Day Tour for $150</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="parisOption" id="parisNightPackage" value="Night Package" data-price="200" />
+                            <label class="form-check-label" for="parisNightPackage">Book Night Package for $200</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
       <!-- Rome Tours -->
       <section id="rome-tours" class="tour-box">
@@ -185,60 +154,29 @@
       </section>
 
       <!-- Modal for Rome -->
-      <div
-        class="modal fade"
-        id="romeModal"
-        tabindex="-1"
-        aria-labelledby="romeModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="romeModal" tabindex="-1" aria-labelledby="romeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="romeModalLabel">
-                Book Your Rome Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="romeOption"
-                    id="romeDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="romeDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="romeModalLabel">Book Your Rome Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="romeOption"
-                    id="romeNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="romeNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="romeBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="romeOption" id="romeDayTour" value="Day Tour" data-price="180" />
+                            <label class="form-check-label" for="romeDayTour">Book Day Tour for $180</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="romeOption" id="romeNightPackage" value="Night Package" data-price="220" />
+                            <label class="form-check-label" for="romeNightPackage">Book Night Package for $220</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
       <!-- Indonesia Tours -->
       <section id="indonesia-tours" class="tour-box">
@@ -276,60 +214,29 @@
       </section>
 
       <!-- Modal for Indonesia -->
-      <div
-        class="modal fade"
-        id="indonesiaModal"
-        tabindex="-1"
-        aria-labelledby="indonesiaModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="indonesiaModal" tabindex="-1" aria-labelledby="indonesiaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="indonesiaModalLabel">
-                Book Your Indonesia Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="indonesiaOption"
-                    id="indonesiaDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="indonesiaDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="indonesiaModalLabel">Book Your Indonesia Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="indonesiaOption"
-                    id="indonesiaNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="indonesiaNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="indonesiaBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indonesiaOption" id="indonesiaDayTour" value="Day Tour" data-price="130" />
+                            <label class="form-check-label" for="indonesiaDayTour">Book Day Tour for $130</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indonesiaOption" id="indonesiaNightPackage" value="Night Package" data-price="170" />
+                            <label class="form-check-label" for="indonesiaNightPackage">Book Night Package for $170</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
       <!-- India Tours -->
       <section id="india-tours" class="tour-box">
@@ -377,60 +284,29 @@
       </section>
 
       <!-- Modal for India -->
-      <div
-        class="modal fade"
-        id="indiaModal"
-        tabindex="-1"
-        aria-labelledby="indiaModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="indiaModal" tabindex="-1" aria-labelledby="indiaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="indiaModalLabel">
-                Book Your India Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="indiaOption"
-                    id="indiaDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="indiaDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="indiaModalLabel">Book Your India Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="indiaOption"
-                    id="indiaNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="indiaNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="indiaBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indiaOption" id="indiaDayTour" value="Day Tour" data-price="160" />
+                            <label class="form-check-label" for="indiaDayTour">Book Day Tour for $160</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indiaOption" id="indiaNightPackage" value="Night Package" data-price="210" />
+                            <label class="form-check-label" for="indiaNightPackage">Book Night Package for $210</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
       <!-- Tokyo Tours -->
       <section id="tokyo-tours" class="tour-box">
@@ -466,61 +342,29 @@
       </section>
 
       <!-- Modal for Tokyo -->
-      <div
-        class="modal fade"
-        id="tokyoModal"
-        tabindex="-1"
-        aria-labelledby="tokyoModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="tokyoModal" tabindex="-1" aria-labelledby="tokyoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="tokyoModalLabel">
-                Book Your Tokyo Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="tokyoOption"
-                    id="tokyoDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="tokyoDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tokyoModalLabel">Book Your Tokyo Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="tokyoOption"
-                    id="tokyoNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="tokyoNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="tokyoBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tokyoOption" id="tokyoDayTour" value="Day Tour" data-price="140" />
+                            <label class="form-check-label" for="tokyoDayTour">Book Day Tour for $140</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tokyoOption" id="tokyoNightPackage" value="Night Package" data-price="190" />
+                            <label class="form-check-label" for="tokyoNightPackage">Book Night Package for $190</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-
+    </div>
       <!-- New York Tours -->
       <section id="newyork-tours" class="tour-box">
         <div class="tour-content">
@@ -552,61 +396,29 @@
       </section>
 
       <!-- Modal for New York -->
-      <div
-        class="modal fade"
-        id="newyorkModal"
-        tabindex="-1"
-        aria-labelledby="newyorkModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="newyorkModal" tabindex="-1" aria-labelledby="newyorkModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="newyorkModalLabel">
-                Book Your New York Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="newyorkOption"
-                    id="newyorkDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="newyorkDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newyorkModalLabel">Book Your New York Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="newyorkOption"
-                    id="newyorkNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="newyorkNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="newyorkBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="newyorkOption" id="newyorkDayTour" value="Day Tour" data-price="170" />
+                            <label class="form-check-label" for="newyorkDayTour">Book Day Tour for $170</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="newyorkOption" id="newyorkNightPackage" value="Night Package" data-price="250" />
+                            <label class="form-check-label" for="newyorkNightPackage">Book Night Package for $250</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-
+    </div>
       <!-- Sydney Tours -->
       <section id="sydney-tours" class="tour-box">
         <div class="tour-content">
@@ -640,60 +452,29 @@
       </section>
 
       <!-- Modal for Sydney -->
-      <div
-        class="modal fade"
-        id="sydneyModal"
-        tabindex="-1"
-        aria-labelledby="sydneyModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="sydneyModal" tabindex="-1" aria-labelledby="sydneyModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="sydneyModalLabel">
-                Book Your Sydney Tour
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="sydneyOption"
-                    id="sydneyDayTour"
-                    value="dayTour"
-                  />
-                  <label class="form-check-label" for="sydneyDayTour">
-                    Book Day Tour
-                  </label>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sydneyModalLabel">Book Your Sydney Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="sydneyOption"
-                    id="sydneyNightPackage"
-                    value="nightPackage"
-                  />
-                  <label class="form-check-label" for="sydneyNightPackage">
-                    Book Night Package
-                  </label>
+                <div class="modal-body">
+                    <form id="sydneyBookingForm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sydneyOption" id="sydneyDayTour" value="Day Tour" data-price="160" />
+                            <label class="form-check-label" for="sydneyDayTour">Book Day Tour for $160</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sydneyOption" id="sydneyNightPackage" value="Night Package" data-price="230" />
+                            <label class="form-check-label" for="sydneyNightPackage">Book Night Package for $230</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">
-                  Confirm Booking
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
     </main>
 
     <footer class="text-center mt-5">
@@ -918,6 +699,64 @@ document.addEventListener('keydown', (e) => {
         const location = e.target.closest('.tour-box').querySelector('h2').textContent;
         togglePreferred(e.target, location);
     }
+});
+const API_URL = 'http://localhost:5000'; // Update with your actual API URL
+
+// Function to fetch wallet balance
+async function fetchWallet() {
+  const response = await fetch(`${API_URL}/api/wallet`);
+  const data = await response.json();
+  return data.wallet.balance; // Assuming the response contains the wallet balance
+}
+
+// General function to handle booking confirmation for any tour
+async function confirmBooking(event) {
+  event.preventDefault();
+  const form = event.target;
+  const selectedOption = form.querySelector('input[type="radio"]:checked');
+  if (!selectedOption) {
+    alert('Please select a tour option.');
+    return;
+  }
+
+  const bookingPrice = parseFloat(selectedOption.getAttribute('data-price'));
+  const walletBalance = await fetchWallet();
+
+  if (walletBalance >= bookingPrice) {
+    // Use the input value directly (assuming it is either "Day Tour" or "Night Package")
+    const tourName = selectedOption.value;
+    const response = await fetch(`${API_URL}/api/wallet/book-tour`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ amount: bookingPrice, tourName: tourName })
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      alert('Booking confirmed! Amount has been deducted from your wallet.');
+      
+      // Close the modal containing this form
+      const modalEl = form.closest('.modal');
+      if (modalEl) {
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) modalInstance.hide();
+      }
+    } else {
+      alert(data.message);
+    }
+  } else {
+    alert('Low on funds! Please add funds to your wallet.');
+    window.location.href = '/quickaccess/wallet.html'; // Redirect to wallet page
+  }
+}
+
+// Attach event listeners to all booking forms (IDs ending with "BookingForm")
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('form[id$="BookingForm"]').forEach(form => {
+    form.addEventListener('submit', confirmBooking);
+  });
 });
   </script>
 </html>
