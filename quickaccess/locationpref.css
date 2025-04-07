@@ -33,7 +33,7 @@ body::before {
 }
 
 .header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 4, 255, 0.9);
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -43,6 +43,7 @@ body::before {
     color: #ffffff;
     text-decoration: none;
 }
+
 
 .container {
     max-width: 1200px;
@@ -215,10 +216,11 @@ body::before {
 }
 /* Header Styles */
 .header {
-    background-color: #0056b3;
+    background-color: #002cf1;
     color: white;
     text-align: center;
     padding: 20px 0;
+    
 }
 
 .header a {
@@ -271,9 +273,16 @@ h2 {
 }
 
 /* Footer Styles */
+/* Footer Styles */
 .footer {
     text-align: center;
     padding: 10px 0;
     background-color: #525252;
     color: #ffffff;
+    position: relative; /* Change to relative */
+    bottom: 0; /* This will not be necessary with relative positioning */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    width: 100%; /* Ensure it takes the full width */
+    margin-top: auto; /* Push it to the bottom of the container */
 }

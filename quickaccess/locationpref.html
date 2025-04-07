@@ -155,9 +155,9 @@
                     <div class="location-info">
                         <h3>${location}${locationData.country ? `, ${locationData.country}` : ''}</h3>
                         <p>${locationData.description}</p>
-                        <button class="remove-btn" onclick="removeLocation('${location}')">
-                            <i class="fas fa-trash"></i> Remove
-                        </button>
+                       <button class="remove-btn" onclick="removeLocation('${location}')" aria-label="Remove ${location}">
+    <i class="fas fa-trash"></i> Remove
+</button>
                     </div>
                 `;
                 container.appendChild(locationElement);
@@ -267,6 +267,18 @@ document.addEventListener('click', function(e) {
         sidebar.style.width = "0";
     }
 });
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Usage
+showNotification(`${location} has been removed from your preferred locations.`);
     </script>
 
     <style>
@@ -295,6 +307,7 @@ document.addEventListener('click', function(e) {
             height: 100%;
             object-fit: cover;
         }
+        
 
         .location-info {
             padding: 20px;

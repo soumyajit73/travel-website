@@ -1,1 +1,0 @@
-mongosh "mongodb+srv://soumyajitdatta1234:AX49Q0TjYxXJ1O1J@cluster0.dnzvkff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

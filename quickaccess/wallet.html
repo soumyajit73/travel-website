@@ -28,225 +28,232 @@
         a:hover {
             color: rgb(255, 204, 74);
         }
-/* Sidebar styles */
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    z-index: 1000;
-}
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #0c0cff;
+            color: #f1f1f1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
 
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
 
-.sidebar a:hover {
-    color: #f1f1f1;
-}
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
 
-.sidebar h1 {
-    color: #818181;
-    padding: 10px 15px;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .sidebar h1 {
+            color: #ffffff;
+            padding: 10px 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.closebtn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    text-decoration: none;
-    color: #818181;
-}
+        .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            text-decoration: none;
+            color: #ffffff;
+        }
 
-/* Profile Icon styles */
-.profile-icon-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-}
+        /* Profile Icon styles */
+        .profile-icon-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
 
-.profile-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
+        .profile-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
 
-.profile-icon:hover {
-    transform: scale(1.1);
-}
+        .profile-icon:hover {
+            transform: scale(1.1);
+        }
 
-/* Map styles */
-#map {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 999;
-}
+        /* Map styles */
+        #map {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+        }
 
-/* Main content adjustment */
-.container {
-    position: relative;
-    z-index: 1;
-}
+        /* Main content adjustment */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
 
-/* Header adjustment */
-header {
-    position: relative;
-    z-index: 2;
-}
+        /* Header adjustment */
+        header {
+            position: relative;
+            z-index: 2;
+        }
 
-/* Ensure sidebar is above other content */
-#sidebar {
-    z-index: 1001;
-}
+        /* Ensure sidebar is above other content */
+        #sidebar {
+            z-index: 1001;
+        }
 
-/* Add overlay when sidebar is open */
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
+        /* Add overlay when sidebar is open */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: rgba(255, 255, 255, 0.5); */
+            z-index: 1000;
+        }
 
-/* Adjust sidebar links spacing */
-.sidebar a:not(.closebtn) {
-    margin: 5px 0;
-    padding: 15px 25px;
-}
+        /* Adjust sidebar links spacing */
+        .sidebar a:not(.closebtn) {
+            margin: 5px 0;
+            padding: 15px 25px;
+        }
 
-/* Active link style */
-.sidebar a.active {
-    background-color: #1a1a1a;
-    color: white;
+        /* Active link style */
+        .sidebar a.active {
+            background-color: none
+            ;
+            color: white;
+        }
+        .sidebar a:hover {
+  background-color: #e7e4e4;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
 }
         /* Sidebar styles */
         /* Update these chatbot styles in your CSS section */
-.chatbot-popup {
-    display: none;
-    position: fixed;
-    bottom: 80px;  /* Adjusted position */
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-    overflow: hidden;
-}
+        .chatbot-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;  /* Adjusted position */
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            overflow: hidden;
+        }
 
-.chatbot-popup.show {
-    display: block;
-    animation: slideUp 0.3s ease;
-}
+        .chatbot-popup.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
 
-.chatbot-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+        .chatbot-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-.chatbot-header {
-    padding: 15px;
-    background: #007bff;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+        .chatbot-header {
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
 
-.chatbot-header h2 {
-    margin: 0;
-    font-size: 18px;
-}
+        .chatbot-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
 
-.close-chatbot {
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-    padding: 0 5px;
-}
+        .close-chatbot {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            padding: 0 5px;
+        }
 
-.close-chatbot:hover {
-    color: #f0f0f0;
-}
+        .close-chatbot:hover {
+            color: #f0f0f0;
+        }
 
-.chatbot-body {
-    flex: 1;
-    overflow: hidden;
-}
+        .chatbot-body {
+            flex: 1;
+            overflow: hidden;
+        }
 
-.chatbot-body iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+        .chatbot-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
-.chat-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    z-index: 999;
-    transition: transform 0.3s ease;
-}
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
 
-.chat-button:hover {
-    transform: scale(1.05);
-    background: #0056b3;
-}
+        .chat-button:hover {
+            transform: scale(1.05);
+            background: #0056b3;
+        }
 
-.chat-button i {
-    font-size: 20px;
-}
+        .chat-button i {
+            font-size: 20px;
+        }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -260,41 +267,36 @@ header {
     </div>
 
     <!-- Sidebar -->
-  <!-- Profile Icon -->
-
-
-<!-- Sidebar -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-<div id="sidebar" class="sidebar">
-    <a href="#" class="closebtn" id="closeSidebar">&times;</a>
-    <h1>Quick Features</h1>
-    <div class="sidebar-links">
-        <a href="../frontend/index.html#home">Home</a>
-        <a href="wallet.html" class="active">Travel Wallet</a>
-        <a href="locationpref.html">Preferred Destinations</a>
-        <a href="history.html">Booking History</a>
-        <a href="membership.html">Membership</a>
-        <a href="#" id="worldMapLink">World Map</a>
-        <a href="#" id="chatbotLink">Chat bot</a>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="closebtn" id="closeSidebar">&times;</a>
+        <h1>Quick Features</h1>
+        <div class="sidebar-links">
+            <a href="../frontend/index.html#home">Home</a>
+            <a href="wallet.html" class="active">Travel Wallet</a>
+            <a href="locationpref.html">Preferred Destinations</a>
+            <a href="history.html">Booking History</a>
+            <a href="membership.html">Membership</a>
+            <a href="#" id="worldMapLink">World Map</a>
+            <a href="#" id="chatbotLink">Chat bot</a>
+        </div>
     </div>
-</div>
 
     <!-- Map Container -->
-  <!-- Map Container -->
-<div id="map">
-    <div class="map-overlay">
-        <button class="close-map" id="closeMap">&times; Close Map</button>
+    <div id="map">
+        <div class="map-overlay">
+            <button class="close-map" id="closeMap">&times; Close Map</button>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58856950.88753749!2d-15.956341145610649!3d25.792249501387207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1743496476411!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
     </div>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58856950.88753749!2d-15.956341145610649!3d25.792249501387207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1743496476411!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-</div>
 
     <!-- Chatbot Popup -->
     <div id="chatbotPopup" class="chatbot-popup">
@@ -479,29 +481,29 @@ header {
         });
 
         // Sidebar functionality
-      // Update your sidebar JavaScript
-document.getElementById("profileIcon").onclick = function(e) {
-    e.stopPropagation();
-    document.getElementById("sidebar").style.width = "300px";
-    document.getElementById("sidebarOverlay").style.display = "block";
-};
+        document.getElementById("profileIcon").onclick = function(e) {
+            e.stopPropagation();
+            document.getElementById("sidebar").style.width = "300px";
+            document.getElementById("sidebarOverlay").style.display = "block";
+        };
 
-document.getElementById("closeSidebar").onclick = function(e) {
-    e.stopPropagation();
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("sidebarOverlay").style.display = "none";
-};
+        document.getElementById("closeSidebar").onclick = function(e) {
+            e.stopPropagation();
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebarOverlay").style.display = "none";
+        };
 
-// Close sidebar when clicking overlay
-document.getElementById("sidebarOverlay").onclick = function() {
-    document.getElementById("sidebar").style.width = "0";
-    this.style.display = "none";
-};
+        // Close sidebar when clicking overlay
+        document.getElementById("sidebarOverlay").onclick = function() {
+            document.getElementById("sidebar").style.width = "0";
+            this.style.display = "none";
+        };
 
-// Prevent sidebar from closing when clicking inside it
-document.getElementById("sidebar").onclick = function(e) {
-    e.stopPropagation();
-};
+        // Prevent sidebar from closing when clicking inside it
+        document.getElementById("sidebar").onclick = function(e) {
+            e.stopPropagation();
+        };
+
         // Chatbot functionality
         document.addEventListener('DOMContentLoaded', function() {
             fetchWallet();
@@ -545,6 +547,7 @@ document.getElementById("sidebar").onclick = function(e) {
                 !chatbotPopup.contains(e.target) && 
                 e.target !== chatButton) {
                 sidebar.style.width = "0";
+                document.getElementById("sidebarOverlay").style.display = "none"; // Hide overlay
             }
 
             // Close chatbot
@@ -555,57 +558,39 @@ document.getElementById("sidebar").onclick = function(e) {
                 chatbotPopup.classList.remove('show');
                 chatButton.style.display = 'flex';
             }
-            // Map functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const worldMapLink = document.getElementById("worldMapLink");
-    const map = document.getElementById("map");
-    const closeMapButton = document.getElementById("closeMap");
+        });
 
-    // Open map
-    worldMapLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.style.display = "block";
-        document.getElementById("sidebar").style.width = "0";
-        document.getElementById("sidebarOverlay").style.display = "none";
-    });
+        // Map functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const worldMapLink = document.getElementById("worldMapLink");
+            const map = document.getElementById("map");
+            const closeMapButton = document.getElementById("closeMap");
 
-    // Close map with button
-    closeMapButton.addEventListener('click', function() {
-        map.style.display = "none";
-    });
+            // Open map
+            worldMapLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                map.style.display = "block";
+                document.getElementById("sidebar").style.width = "0";
+                document.getElementById("sidebarOverlay").style.display = "none";
+            });
 
-    // Close map with escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && map.style.display === "block") {
-            map.style.display = "none";
-        }
-    });
+            // Close map with button
+            closeMapButton.addEventListener('click', function() {
+                map.style.display = "none";
+            });
 
-    // Prevent map from closing when clicking inside it
-    map.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-});
+            // Close map with escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && map.style.display === "block") {
+                    map.style.display = "none";
+                }
+            });
 
-// Update your existing click handler
-document.addEventListener('click', function(e) {
-    const map = document.getElementById("map");
-    const sidebar = document.getElementById('sidebar');
-    const profileIcon = document.getElementById('profileIcon');
-    const chatbotPopup = document.getElementById('chatbotPopup');
-    const chatButton = document.getElementById('chatButton');
-
-    // Close map if clicking outside
-    if (map.style.display === "block" && 
-        !map.contains(e.target) && 
-        e.target.id !== "worldMapLink" &&
-        e.target.id !== "closeMap") {
-        map.style.display = "none";
-    }
-
-    // Your existing sidebar and chatbot close handlers...
-});
+            // Prevent map from closing when clicking inside it
+            map.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
     </script>
 </body>
