@@ -63,6 +63,8 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Add this in your HTML head section -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body id="home">
     <!-- Background Image Container -->
@@ -869,5 +871,42 @@ function initializeSearchSuggestions() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeSearchSuggestions();
 });
+  </script>
+  <script>
+    // Initialize EmailJS with your user ID
+    emailjs.init("0L_Za5gFbCpRgiiOn");
+  
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+  
+      // Check if it's a Gmail address
+      if (email.toLowerCase().includes('@gmail.com')) {
+        // Send the automated response
+        emailjs.send("service_moh7ymy", "template_puzhvjc", {
+          to_name: name,
+          to_email: email,
+          message: "Thank you for reaching out to us. We will contact you soon!"
+        })
+        .then(function(response) {
+          console.log("Automated email sent successfully!", response);
+          alert("Thank you for your message! We've sent you a confirmation email.");
+        })
+        .catch(function(error) {
+          console.log("Failed to send automated email:", error);
+          alert("Message sent, but there was an error sending the confirmation email.");
+        });
+      }
+  
+      // Handle the original contact form submission
+      // You can add your own logic here to store the message or forward it to your team
+      console.log("Form submitted:", { name, email, message });
+      
+      // Clear the form
+      event.target.reset();
+    });
   </script>
 </html>

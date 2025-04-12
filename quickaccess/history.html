@@ -53,26 +53,28 @@
       }
       
       function renderBookingHistory(bookings) {
-        const tbody = document.querySelector('.booking-table tbody');
-        tbody.innerHTML = ''; // Clear any existing content
-        if (bookings.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="3">No bookings found.</td></tr>';
-          return;
-        }
-        bookings.forEach(booking => {
-          const row = document.createElement('tr');
-          // Adjust key names based on your API response
-          const date = new Date(booking.date).toLocaleDateString();
-          const description = booking.description || booking.tourName || 'N/A';
-          const amount = `$${booking.amount}`;
-          row.innerHTML = `
-            <td>${date}</td>
-            <td>${description}</td>
-            <td>${amount}</td>
-          `;
-          tbody.appendChild(row);
-        });
-      }
+  const tbody = document.querySelector('.booking-table tbody');
+  tbody.innerHTML = ''; // Clear any existing content
+  if (bookings.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3">No bookings found.</td></tr>';
+    return;
+  }
+  bookings.forEach(booking => {
+    const date = new Date(booking.date).toLocaleDateString();
+    // Combine the place and package name in the description
+    const description = booking.place && booking.tourName 
+      ? `${booking.place} - ${booking.tourName}`
+      : (booking.tourName || booking.description || 'N/A');
+    const amount = `$${booking.amount}`;
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${date}</td>
+      <td>${description}</td>
+      <td>${amount}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
       
       document.addEventListener('DOMContentLoaded', async () => {
         const bookings = await fetchBookingHistory();
