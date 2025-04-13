@@ -872,41 +872,47 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSearchSuggestions();
 });
   </script>
-  <script>
-    // Initialize EmailJS with your user ID
-    emailjs.init("0L_Za5gFbCpRgiiOn");
-  
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
+ <script>
+  // Initialize EmailJS
+  emailjs.init("0L_Za5gFbCpRgiiOn");
+
+  document.getElementById('contact-form').addEventListener('submit', async function(event) {
       event.preventDefault();
-  
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-  
-      // Check if it's a Gmail address
-      if (email.toLowerCase().includes('@gmail.com')) {
-        // Send the automated response
-        emailjs.send("service_moh7ymy", "template_puzhvjc", {
-          to_name: name,
-          to_email: email,
-          message: "Thank you for reaching out to us. We will contact you soon!"
-        })
-        .then(function(response) {
-          console.log("Automated email sent successfully!", response);
-          alert("Thank you for your message! We've sent you a confirmation email.");
-        })
-        .catch(function(error) {
-          console.log("Failed to send automated email:", error);
-          alert("Message sent, but there was an error sending the confirmation email.");
-        });
+
+      // Get form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim(); // User's email
+      const message = document.getElementById('message').value.trim();
+
+      // Disable submit button while processing
+      const submitButton = this.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      try {
+          // Send confirmation email to the user's email address
+          await emailjs.send(
+              "service_moh7ymy", // Your service ID
+              "template_puzhvjc", // Your template ID
+              {
+                  to_name: name,
+                  to_email: email, // This will send to the user's email
+                  from_name: "RoamBuddy",
+                  message: "Thank you for reaching out to us. We will contact you soon!",
+              }
+          );
+
+          console.log("Confirmation email sent to:", email);
+          alert("Thank you for your message! Please check your email for confirmation.");
+          event.target.reset(); // Clear the form
+      } catch (error) {
+          console.error("Failed to send email:", error);
+          alert("There was an error sending your message. Please try again.");
+      } finally {
+          // Re-enable submit button
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
       }
-  
-      // Handle the original contact form submission
-      // You can add your own logic here to store the message or forward it to your team
-      console.log("Form submitted:", { name, email, message });
-      
-      // Clear the form
-      event.target.reset();
-    });
-  </script>
+  });
+</script>
 </html>
