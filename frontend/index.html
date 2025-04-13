@@ -872,7 +872,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSearchSuggestions();
 });
   </script>
- <script>
+<script>
   // Initialize EmailJS
   emailjs.init("0L_Za5gFbCpRgiiOn");
 
@@ -881,7 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Get form values
       const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim(); // User's email
+      const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
 
       // Disable submit button while processing
@@ -890,19 +890,31 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.textContent = 'Sending...';
 
       try {
-          // Send confirmation email to the user's email address
+          // 1. Send the user's message to admin email
           await emailjs.send(
-              "service_moh7ymy", // Your service ID
-              "template_puzhvjc", // Your template ID
+              "service_moh7ymy",
+              "template_vdxw62d", // Admin template
               {
-                  to_name: name,
-                  to_email: email, // This will send to the user's email
-                  from_name: "RoamBuddy",
-                  message: "Thank you for reaching out to us. We will contact you soon!",
+                  to_email: "soumyajitdatta73@gmail.com", // Your admin email
+                  from_name: name,
+                  from_email: email,
+                  message: message // The actual message from user
               }
           );
 
-          console.log("Confirmation email sent to:", email);
+          // 2. Send confirmation email to the user
+          await emailjs.send(
+              "service_moh7ymy",
+              "template_puzhvjc", // User template
+              {
+                  to_name: name,
+                  to_email: email,
+                  from_name: "RoamBuddy",
+                  message: "Thank you for reaching out to us. We will contact you soon!"
+              }
+          );
+
+          console.log("Emails sent successfully!");
           alert("Thank you for your message! Please check your email for confirmation.");
           event.target.reset(); // Clear the form
       } catch (error) {
