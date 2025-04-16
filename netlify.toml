@@ -2,8 +2,23 @@
   publish = "frontend"
 
 [[redirects]]
-  from = "/quickaccess/*"
-  to = "/quickaccess/:splat"
+  from = "/quickaccess/membership.html"
+  to = "/quickaccess/membership.html"
+  status = 200
+
+[[redirects]]
+  from = "/quickaccess/wallet.html"
+  to = "/quickaccess/wallet.html"
+  status = 200
+
+[[redirects]]
+  from = "/quickaccess/history.html"
+  to = "/quickaccess/history.html"
+  status = 200
+
+[[redirects]]
+  from = "/quickaccess/locationpref.html"
+  to = "/quickaccess/locationpref.html"
   status = 200
 
 [[redirects]]
