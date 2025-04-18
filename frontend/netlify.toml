@@ -1,0 +1,7 @@
+[build]
+  publish = "/"
+
+[[redirects]]
+  from = "/frontend/*"
+  to = "/:splat"
+  status = 200
