@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 100;
     min-height: 50vh;
-    background-image: url('../frontend/images/prefloc.jpg'); /* Adjust path according to your structure */
+    background-image: url('/frontend/images/prefloc.jpg'); /* Adjust path according to your structure */
     background-size: cover;
     background-position: center 5%;
     background-attachment: scroll;
