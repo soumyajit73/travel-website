@@ -272,7 +272,7 @@
         <a href="#" class="closebtn" id="closeSidebar">&times;</a>
         <h1>Quick Features</h1>
         <div class="sidebar-links">
-            <a href="/frontend/index.html#home">Home</a>
+            <a href="/#home" onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html#home'; return false; }">Home</a>
             <a href="wallet.html" class="active">Travel Wallet</a>
             <a href="locationpref.html">Preferred Destinations</a>
             <a href="history.html">Booking History</a>
