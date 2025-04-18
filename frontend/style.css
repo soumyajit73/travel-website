@@ -82,9 +82,27 @@ body {
   transition: color 0.3s ease;
   padding-top: 5px; /* Adjust this value as needed */
 }
-/* Map container styles */
-/* Map container styles */
-/* Map container styles */
+.profile-icon-wrapper {
+  margin-right: 15px;
+  z-index: 1021; /* Higher than navbar-toggler */
+}
+
+.profile-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 8px;
+}
+
+/* Adjust margins for mobile */
+@media (max-width: 991px) {
+  .navbar-toggler {
+      margin-left: 10px;
+  }
+  
+  .profile-icon-wrapper {
+      order: 2; /* Places icon between brand and hamburger */
+  }
+}
 /* Map container styles */
 #map {
   display: none; /* Initially hidden */
