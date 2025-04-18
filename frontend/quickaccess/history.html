@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Booking History - RoamBuddy</title>
-   <!-- In your quickaccess pages -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="history.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <!-- In your quickaccess pages -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="history.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Header -->
     <header class="header">
-      <h1><a href="/frontend/index.html">Booking History</a></h1>
-      
-      
+      <a
+        href="/"
+        onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html'; return false; }"
+        >Home</a
+      >
     </header>
-  
+
     <!-- Main Content -->
     <main class="container">
       <section id="booking-history">
@@ -35,15 +43,15 @@
         </table>
       </section>
     </main>
-  
+
     <!-- Footer -->
     <footer class="footer">
       <p>&copy; 2025 RoamBuddy. All rights reserved.</p>
     </footer>
-  
+
     <!-- Booking History Logic -->
     <script>
-      const API_URL = 'http://localhost:5000'; // Adjust based on your API
+      const API_URL = "http://localhost:5000"; // Adjust based on your API
 
       async function fetchBookingHistory() {
         try {
@@ -52,36 +60,37 @@
           const data = await response.json();
           return data.bookings || []; // Adjust based on your API response structure
         } catch (error) {
-          console.error('Error fetching booking history:', error);
+          console.error("Error fetching booking history:", error);
           return [];
         }
       }
-      
+
       function renderBookingHistory(bookings) {
-  const tbody = document.querySelector('.booking-table tbody');
-  tbody.innerHTML = ''; // Clear any existing content
-  if (bookings.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="3">No bookings found.</td></tr>';
-    return;
-  }
-  bookings.forEach(booking => {
-    const date = new Date(booking.date).toLocaleDateString();
-    // Combine the place and package name in the description
-    const description = booking.place && booking.tourName 
-      ? `${booking.place} - ${booking.tourName}`
-      : (booking.tourName || booking.description || 'N/A');
-    const amount = `$${booking.amount}`;
-    const row = document.createElement('tr');
-    row.innerHTML = `
+        const tbody = document.querySelector(".booking-table tbody");
+        tbody.innerHTML = ""; // Clear any existing content
+        if (bookings.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3">No bookings found.</td></tr>';
+          return;
+        }
+        bookings.forEach((booking) => {
+          const date = new Date(booking.date).toLocaleDateString();
+          // Combine the place and package name in the description
+          const description =
+            booking.place && booking.tourName
+              ? `${booking.place} - ${booking.tourName}`
+              : booking.tourName || booking.description || "N/A";
+          const amount = `$${booking.amount}`;
+          const row = document.createElement("tr");
+          row.innerHTML = `
       <td>${date}</td>
       <td>${description}</td>
       <td>${amount}</td>
     `;
-    tbody.appendChild(row);
-  });
-}
-      
-      document.addEventListener('DOMContentLoaded', async () => {
+          tbody.appendChild(row);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", async () => {
         const bookings = await fetchBookingHistory();
         renderBookingHistory(bookings);
       });
