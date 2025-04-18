@@ -10,7 +10,7 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <h1><a href="/frontend/index.html">Preferred Locations</a></h1>
+        <h1><a href="/" onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html'; return false; }">Preferred Locations</a></h1>
     </header>
     <div class="profile-icon-container">
         <i class="fas fa-user profile-icon" id="profileIcon"></i>

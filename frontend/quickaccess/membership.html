@@ -11,7 +11,7 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <h1><a href="/frontend/index.html">Membership Plans</a></h1>
+      <h1><a href="/" onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html'; return false; }">Membership Plans</a></h1>
       <div id="message"></div>
     </header>
 
