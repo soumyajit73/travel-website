@@ -274,15 +274,35 @@ h2 {
 
 /* Footer Styles */
 /* Footer Styles */
-.footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #525252;
-    color: #ffffff;
-    position: relative; /* Change to relative */
-    bottom: 0; /* This will not be necessary with relative positioning */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    width: 100%; /* Ensure it takes the full width */
-    margin-top: auto; /* Push it to the bottom of the container */
-}
+/* Ensure the html and body fill the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Make the body a flex container in column direction */
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+  }
+  
+  /* Main content will take up available space */
+  main {
+    flex: 1;
+  }
+  
+  /* Existing footer styling */
+  .footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #525252;
+      color: #ffffff;
+      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin-top: auto; /* This pushes footer to bottom */
+  }

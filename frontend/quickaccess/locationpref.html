@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <div class="your-element"></div>
     <!-- Header -->
     <header class="header">
       <h1>
@@ -29,7 +30,11 @@
     <div id="sidebar" class="sidebar">
       <a href="#" class="closebtn" id="closeSidebar">&times;</a>
       <h1>Quick Features</h1>
-      <a href="/#home" onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html#home'; return false; }">Home</a>
+      <a
+        href="/#home"
+        onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html#home'; return false; }"
+        >Home</a
+      >
       <a href="wallet.html">Roam Wallet</a>
       <a href="locationpref.html">Preferred Destinations</a>
       <a href="history.html">Booking History</a>
@@ -392,12 +397,28 @@
         text-decoration: underline;
       }
     </style>
-    <script>document.addEventListener('DOMContentLoaded', function() {
-        const element = document.querySelector('.your-element');
-        const imagePath = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-            ? '/frontend/images/prefloc.jpg'
-            : '/images/prefloc.jpg';
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const element = document.querySelector(".your-element");
+        const imagePath =
+          location.hostname === "localhost" || location.hostname === "127.0.0.1"
+            ? "/frontend/images/prefloc.jpg"
+            : "/images/prefloc.jpg";
         element.style.backgroundImage = `url('${imagePath}')`;
-    });</script>
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const element = document.querySelector(".your-element");
+        if (element) {
+          const imagePath =
+            location.hostname === "localhost" ||
+            location.hostname === "127.0.0.1"
+              ? "/frontend/images/prefloc.jpg"
+              : "/images/prefloc.jpg";
+          element.style.backgroundImage = `url('${imagePath}')`;
+        } else {
+          console.error('Element with class ".your-element" not found');
+        }
+      });
+    </script>
   </body>
 </html>
