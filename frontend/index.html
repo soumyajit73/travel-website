@@ -708,7 +708,7 @@ loginForm.addEventListener('submit', async function (event) {
       // Handle successful login
       alert('Login successful!');
       localStorage.setItem('token', result.token); // Store the token in localStorage
-      window.location.href = '../quickaccess/membership.html'; // Example: Redirect to membership page
+      window.location.href = '/quickaccess/membership.html'; // Example: Redirect to membership page
       // Redirect or update UI as needed
     } else {
       // Handle login error
@@ -741,7 +741,7 @@ loginForm.addEventListener('submit', async function (event) {
           const result = await response.json();
           if (response.ok) {
             // Handle successful signup
-            window.location.href = '../quickaccess/membership.html'; 
+            window.location.href = '/quickaccess/membership.html'; 
             alert('Signup successful!');
             // Redirect or update UI as needed
           } else {
@@ -796,20 +796,20 @@ const searchMappings = {
     'contact': '#contact',
     
     // Quick Access Pages (External Pages)
-    'wallet': '../quickaccess/wallet.html',
-    'preferred destinations': '../quickaccess/locationpref.html',
-    'preferences': '../quickaccess/locationpref.html',
-    'booking': '../quickaccess/history.html',
-    'history': '../quickaccess/history.html',
-    'membership': '../quickaccess/membership.html',
-    'more destinations': '../frontend/tnp.html',
+    'wallet': 'quickaccess/wallet.html',
+    'preferred destinations': 'quickaccess/locationpref.html',
+    'preferences': 'quickaccess/locationpref.html',
+    'booking': 'quickaccess/history.html',
+    'history': 'quickaccess/history.html',
+    'membership': 'quickaccess/membership.html',
+    'more destinations': '/frontend/tnp.html',
     // 'explore': '../frontend/tnp.html',
-    'explore more': '../frontend/tnp.html',
+    'explore more': '/frontend/tnp.html',
     
     // Tour Destinations
-    'paris': '../tnp.html#paris-tours',
-    'rome': '../tnp.html#rome-tours',
-    'india': '../tnp.html#india-tours'
+    'paris': 'tnp.html#paris-tours',
+    'rome': 'tnp.html#rome-tours',
+    'india': 'tnp.html#india-tours'
 };
 
 function handleSearch(event) {
