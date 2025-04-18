@@ -27,7 +27,19 @@
   align-items: center; /* Vertically center content */
   justify-content: center; /* Horizontally center content */
 }
+.navbar-logo {
+  height: 40px; /* Adjust height as needed */
+  width: auto;
+  /* For maintaining aspect ratio */
+  object-fit: contain;
+}
 
+/* Mobile responsiveness for logo */
+@media screen and (max-width: 768px) {
+  .navbar-logo {
+      height: 30px; /* Slightly smaller on mobile */
+  }
+}
 .overlay-content {
   background: rgba(
     255,
