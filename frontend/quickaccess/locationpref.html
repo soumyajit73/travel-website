@@ -392,5 +392,12 @@
         text-decoration: underline;
       }
     </style>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        const element = document.querySelector('.your-element');
+        const imagePath = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+            ? '/frontend/images/prefloc.jpg'
+            : '/images/prefloc.jpg';
+        element.style.backgroundImage = `url('${imagePath}')`;
+    });</script>
   </body>
 </html>
