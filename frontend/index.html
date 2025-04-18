@@ -602,7 +602,14 @@ document.getElementById("search-icon").addEventListener("click", function () {
 });
 
 document.getElementById("profileIcon").onclick = function () {
-  document.getElementById("sidebar").style.width = "300px";
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar.style.width === "300px") {
+        // If sidebar is open, close it
+        sidebar.style.width = "0";
+    } else {
+        // If sidebar is closed, open it
+        sidebar.style.width = "300px";
+    }
 };
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
