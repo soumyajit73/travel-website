@@ -748,7 +748,7 @@ loginForm.addEventListener('submit', async function (event) {
       // Handle successful login
       alert('Login successful!');
       localStorage.setItem('token', result.token); // Store the token in localStorage
-      window.location.href = '/quickaccess/membership.html'; // Example: Redirect to membership page
+  // Example: Redirect to membership page
       // Redirect or update UI as needed
     } else {
       // Handle login error
@@ -781,7 +781,7 @@ loginForm.addEventListener('submit', async function (event) {
           const result = await response.json();
           if (response.ok) {
             // Handle successful signup
-            window.location.href = '/quickaccess/membership.html'; 
+            window.location.href = '/frontend/quickaccess/membership.html'; 
             alert('Signup successful!');
             // Redirect or update UI as needed
           } else {
