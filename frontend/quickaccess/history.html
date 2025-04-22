@@ -18,12 +18,13 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <h1><a
-        href="/"
-        onclick="if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') { window.location.href = '/frontend/index.html'; return false; }"
-        >Booking History</a
-      ></h1>
-      
+      <h1>
+        <a
+          href="/"
+          onclick="if(location.hostname === 'localhost' && location.port === '3000') { window.location.href = '/index.html'; return false; }"
+          >Booking History</a
+        >
+      </h1>
     </header>
 
     <!-- Main Content -->

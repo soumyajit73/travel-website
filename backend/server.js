@@ -7,11 +7,12 @@ const bookingRoutes = require('./routes/booking');
 
 const app = express();
 dotenv.config();
+// In your backend server.js
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500", // Allow requests from this origin
-    methods: ["GET", "POST"], // Specify allowed methods
-    credentials: true, // If you need to send cookies or HTTP authentication
+    origin: "http://localhost:3000", // Update this to match your frontend port
+    methods: ["GET", "POST"],
+    credentials: true,
   })
 );
 

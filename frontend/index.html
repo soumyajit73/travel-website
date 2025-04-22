@@ -781,7 +781,7 @@ loginForm.addEventListener('submit', async function (event) {
           const result = await response.json();
           if (response.ok) {
             // Handle successful signup
-            window.location.href = '/frontend/quickaccess/membership.html'; 
+            window.location.href = '/quickaccess/membership.html'; 
             alert('Signup successful!');
             // Redirect or update UI as needed
           } else {
@@ -842,9 +842,9 @@ const searchMappings = {
     'booking': 'quickaccess/history.html',
     'history': 'quickaccess/history.html',
     'membership': 'quickaccess/membership.html',
-    'more destinations': '/frontend/tnp.html',
+    'more destinations': '/tnp.html',
     // 'explore': '../frontend/tnp.html',
-    'explore more': '/frontend/tnp.html',
+    'explore more': '/tnp.html',
     
     // Tour Destinations
     'paris': 'tnp.html#paris-tours',
